@@ -1,0 +1,29 @@
+2025-02-16 23:08:56 [main] INFO  predictor.demo.DemoApplication - Starting DemoApplication using Java 17.0.13 with PID 2832 (C:\Fullstack_apps\period-and-ovulation-predictor\backend\demo\target\classes started by Danil in C:\Fullstack_apps\period-and-ovulation-predictor)
+2025-02-16 23:08:56 [main] INFO  predictor.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-16 23:09:02 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-16 23:09:02 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-16 23:09:02 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-16 23:09:02 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-16 23:09:02 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-16 23:09:03 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-16 23:09:04 [main] WARN  com.zaxxer.hikari.HikariConfig - predictor-period-ovulation - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2025-02-16 23:09:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Starting...
+2025-02-16 23:09:04 [main] INFO  com.zaxxer.hikari.pool.HikariPool - predictor-period-ovulation - Added connection com.mysql.cj.jdbc.ConnectionImpl@194037f9
+2025-02-16 23:09:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Start completed.
+2025-02-16 23:09:05 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-16 23:09:05 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-16 23:09:05 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (predictor-period-ovulation)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-16 23:09:07 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-16 23:09:10 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-16 23:09:12 [main] INFO  predictor.demo.DemoApplication - Started DemoApplication in 17.708 seconds (process running for 18.862)
+2025-02-16 23:09:34 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-16 23:09:34 [http-nio-8080-exec-1] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [165] milliseconds.
+2025-02-16 23:09:41 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-16 23:09:41 [http-nio-8080-exec-5] ERROR predictor.demo.AppConfiguration - Error retrieving user with Google ID 114720670413454628998: FAILED: user not found

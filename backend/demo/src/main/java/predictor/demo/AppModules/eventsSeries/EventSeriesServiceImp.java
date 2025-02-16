@@ -5,10 +5,14 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 import predictor.demo.AppModules.calendar.GoogleCalendarService;
 import predictor.demo.AppModules.eventData.EventData;
 import predictor.demo.AppModules.eventData.EventDataServiceImp;
@@ -16,6 +20,7 @@ import predictor.demo.AppModules.user.User;
 import predictor.demo.Error.AppException;
 
 @Service
+@Slf4j
 public class EventSeriesServiceImp implements EventsSeriesService {
     @Autowired
     private EventsSeriesRepository eventsSeriesRepository;
@@ -45,38 +50,52 @@ public class EventSeriesServiceImp implements EventsSeriesService {
     }
 
     @Override
-    public void deleteEventSeries(int eventSeriesId) throws AppException {
+@Transactional
+public void deleteEventSeries(int eventSeriesId) throws AppException {
+    try {
+        // Get the series first
         EventsSeries series = getSingleEventsSeries(eventSeriesId);
-        // Delete from Google Calendar first
-        try {
-            List<String> calendarEventIds = series.getPredictedEvents().stream()
-                    .map(EventData::getCalendarEventId)
-                    .filter(id -> id != null)
-                    .toList();
-            googleCalendarService.deleteCalendarEvents(calendarEventIds);
-        } catch (IOException e) {
-            throw new AppException(EventsSeriesError.CALENDAR_SYNC_ERROR);
+        if (series == null) {
+            throw new AppException(EventsSeriesError.EVENTS_SERIES_NOT_FOUND);
         }
-        // Then delete from database
-        this.eventsSeriesRepository.deleteById(eventSeriesId);
+
+        // Extract Google Calendar event IDs
+        List<String> calendarEventIds = series.getPredictedEvents().stream()
+                .map(EventData::getCalendarEventId)  // Changed from getGoogleCalendarEventId
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+
+        // Delete from Google Calendar first
+        if (!calendarEventIds.isEmpty()) {
+            try {
+                googleCalendarService.deleteCalendarEvents(calendarEventIds);
+            } catch (Exception e) {
+                log.error("Failed to delete some Google Calendar events", e);
+                // Continue with database deletion even if Google Calendar deletion failed
+            }
+        }
+
+        // Delete from database
+        eventsSeriesRepository.deleteById(eventSeriesId);
+        log.info("Successfully deleted event series: {}", eventSeriesId);
+        
+    } catch (Exception e) {
+        log.error("Error deleting event series: {}", eventSeriesId, e);
+        throw new AppException(EventsSeriesError.EVENTS_SERIES_NOT_DELETED);
     }
+}
 
     @Override
     public void deleteAllPredictions(EventsSeries eventSeries) throws AppException {
-        try {
-            // Delete from Google Calendar
-            List<EventData> predictions = eventServiceImp.getAllUserPredictedEvents(eventSeries.getUser().getId());
-            List<String> calendarEventIds = predictions.stream()
-                    .map(EventData::getCalendarEventId)
-                    .filter(id -> id != null)
-                    .toList();
-            googleCalendarService.deleteCalendarEvents(calendarEventIds);
-
-            // Delete from database
-            eventServiceImp.deleteAllPredictedEventsByUser(eventSeries.getUser().getId());
-        } catch (IOException e) {
-            throw new AppException(EventsSeriesError.CALENDAR_SYNC_ERROR);
-        }
+        // Delete from Google Calendar
+        List<EventData> predictions = eventServiceImp.getAllUserPredictedEvents(eventSeries.getUser().getId());
+        List<String> calendarEventIds = predictions.stream()
+                .map(EventData::getCalendarEventId)
+                .filter(id -> id != null)
+                .toList();
+        googleCalendarService.deleteCalendarEvents(calendarEventIds);
+        // Delete from database
+        eventServiceImp.deleteAllPredictedEventsByUser(eventSeries.getUser().getId());
     }
 
     @Override
@@ -145,19 +164,7 @@ public class EventSeriesServiceImp implements EventsSeriesService {
         }
 
         // Sync all predictions with Google Calendar
-        try {
-            googleCalendarService.batchSyncEvents(prediction);
-        } catch (IOException e) {
-            // If calendar sync fails, we should delete the predictions from our database
-            prediction.forEach(event -> {
-                try {
-                    this.eventServiceImp.deleteEvent(event.getId());
-                } catch (AppException ex) {
-                    throw new RuntimeException(ex);
-                }
-            });
-            throw new AppException(EventsSeriesError.CALENDAR_SYNC_ERROR);
-        }
+        googleCalendarService.batchSyncEvents(prediction); // If calendar sync fails, we should delete the predictions from our database
 
         eventsSeries.setPredictedEvents(prediction);
         return this.eventsSeriesRepository.save(eventsSeries);

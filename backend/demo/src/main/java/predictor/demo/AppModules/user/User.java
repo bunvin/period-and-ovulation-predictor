@@ -2,7 +2,6 @@ package predictor.demo.AppModules.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import org.hibernate.annotations.processing.Exclude;
 import predictor.demo.AppModules.eventsSeries.EventsSeries;
 
 import java.time.LocalDateTime;
@@ -64,17 +63,20 @@ public class User {
         private String picture;
         private boolean isActive;
 
-
-        public void isActive(boolean isActive) {
+        // Fixed return types to enable method chaining
+        public UserBuilder isActive(boolean isActive) {
             this.isActive = isActive;
+            return this;
         }
 
-        public void name(String name) {
+        public UserBuilder name(String name) {
             this.name = name;
+            return this;
         }
 
-        public void picture(String picture) {
+        public UserBuilder picture(String picture) {
             this.picture = picture;
+            return this;
         }
 
         public UserBuilder id(int id) {
@@ -96,7 +98,6 @@ public class User {
             this.refreshToken = refreshToken;
             return this;
         }
-
 
         public User build() {
             User user = new User();
