@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,9 +25,9 @@ import predictor.demo.AppModules.user.User;
 import predictor.demo.AppModules.user.UserServiceImp;
 import predictor.demo.Error.AppException;
 
+// @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/calendar")
-@CrossOrigin(origins = "http://localhost:3000")
 @Slf4j
 public class CalendarController {
 

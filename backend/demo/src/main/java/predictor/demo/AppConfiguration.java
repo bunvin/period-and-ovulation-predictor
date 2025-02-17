@@ -46,61 +46,6 @@ public class AppConfiguration {
     }
 
     @Bean
-    public OAuth2UserService<OAuth2UserRequest, OAuth2User> oauth2UserService() {
-        DefaultOAuth2UserService delegate = new DefaultOAuth2UserService();
-    
-        return (userRequest) -> {
-            // Call the default service first
-            OAuth2User oauth2User = delegate.loadUser(userRequest);
-    
-            // Extract user details from Google
-            String googleId = oauth2User.getAttribute("sub");
-            String email = oauth2User.getAttribute("email");
-            String name = oauth2User.getAttribute("name");
-    
-            // Check if user exists
-            User user;
-            try {
-                user = this.userServiceImp.getUserByGoogleSubject(googleId);
-            } catch (AppException ex) {
-                logger.error("Error retrieving user with Google ID {}: {}", googleId, ex.getMessage());
-                return oauth2User;  // Or handle the error appropriately here.
-            }
-    
-            if (user == null) {
-                // Create new user if doesn't exist
-                user = new User();
-                user.setGoogleSubject(googleId);
-                user.setEmail(email);
-                user.setName(name);
-    
-                try {
-                    userServiceImp.createUser(user);
-                    logger.info("Created new user with Google ID: {}", googleId);
-                } catch (AppException ex) {
-                    logger.error("Error creating user with Google ID {}: {}", googleId, ex.getMessage());
-                }
-            }
-    
-            // Return OAuth2User 
-            return oauth2User;
-        };
-    }
-
-
-    // @Bean
-    // public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    //     http
-    //             .authorizeHttpRequests(auth -> auth
-    //                     .anyRequest().authenticated())
-    //             .oauth2Login(oauth2 -> oauth2
-    //                     .defaultSuccessUrl("/", true)
-    //                     .failureUrl("/login?error=true"))
-    //             .csrf(Customizer.withDefaults());
-    //     return http.build();
-    // }
-
-    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
@@ -113,6 +58,58 @@ public class AppConfiguration {
             .cors(Customizer.withDefaults())  // Enable CORS
             .csrf(csrf -> csrf.disable());  // Disable CSRF for API calls
         return http.build();
+    }
+
+
+    @Bean
+    public OAuth2UserService<OAuth2UserRequest, OAuth2User> oauth2UserService() {
+        DefaultOAuth2UserService delegate = new DefaultOAuth2UserService();
+    
+        return (userRequest) -> {
+            // Get Google user info
+            OAuth2User oauth2User = delegate.loadUser(userRequest);
+    
+            // Extract user details
+            String googleId = oauth2User.getAttribute("sub");
+            String email = oauth2User.getAttribute("email");
+            String name = oauth2User.getAttribute("name");
+            String picture = oauth2User.getAttribute("picture");
+    
+            logger.info("Processing OAuth2 login for: {}", email);
+    
+            // Initialize user as null
+            User user = null;
+    
+            try {
+                // Try to find existing user
+                user = userServiceImp.getUserByGoogleSubject(googleId);
+                logger.info("Found existing user: {}", email);
+            } catch (AppException ex) {
+                logger.info("User not found, will create new user for: {}", email);
+                // User not found - continue to creation block
+            }
+    
+            // Create new user if doesn't exist
+            if (user == null) {
+                try {
+                    User newUser = new User.UserBuilder()
+                        .googleSubject(googleId)
+                        .email(email)
+                        .name(name)
+                        .picture(picture)
+                        .build();
+                    
+                    user = userServiceImp.createUser(newUser);
+                    logger.info("Created new user with Google ID: {}", googleId);
+                } catch (AppException e) {
+                    logger.error("Error creating user with Google ID {}: {}", googleId, e.getMessage());
+                    // Even if user creation fails, we still return oauth2User to allow authentication
+                }
+            }
+    
+            // Return the OAuth2User regardless of database operations
+            return oauth2User;
+        };
     }
 
     @Bean

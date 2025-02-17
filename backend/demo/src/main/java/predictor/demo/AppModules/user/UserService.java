@@ -11,7 +11,7 @@ public interface UserService {
     User getUserById(int id) throws AppException;
     User getUserByEmail(String email) throws AppException;
     User getUserByGoogleSubject(String googleSubject) throws AppException;
-    void updateUser(User user) throws AppException;
+    void updateUser(User user, int userId) throws AppException;
     void deleteUser(int id) throws AppException;
     List<User> getAllUsers();
     void updateRefreshToken(int userId, String refreshToken) throws AppException;

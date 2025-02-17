@@ -18,9 +18,6 @@ public class UserServiceImp implements UserService {
 @Override
     public User getCurrentUser(OAuth2User principal) {
         String googleSubject = principal.getAttribute("sub");
-        String email = principal.getAttribute("email");
-        String name = principal.getAttribute("name");
-        String picture = principal.getAttribute("picture");
 
         return userRepository.findByGoogleSubject(googleSubject)
                 .map(user -> updateExistingUser(user, principal))
@@ -62,7 +59,7 @@ public class UserServiceImp implements UserService {
             .isActive(true)
             .build();
 
-return userRepository.save(newUser);
+        return userRepository.save(newUser);
     }
 
     @Override
@@ -103,8 +100,8 @@ return userRepository.save(newUser);
     }
 
     @Override
-    public void updateUser(User user) throws AppException {
-        User existingUser = getUserById(user.getId());
+    public void updateUser(User user, int userId) throws AppException {
+        User existingUser = getUserById(userId);
         // If email is being changed, check if new email is available
         if (!existingUser.getEmail().equals(user.getEmail()) &&
                 userRepository.existsByEmail(user.getEmail())) {
