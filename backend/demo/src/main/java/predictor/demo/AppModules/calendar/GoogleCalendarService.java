@@ -1,19 +1,19 @@
 package predictor.demo.AppModules.calendar;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.Calendar;
 import com.google.api.services.calendar.model.Event;
 import com.google.api.services.calendar.model.EventDateTime;
 
 import lombok.extern.slf4j.Slf4j;
-
-import org.springframework.stereotype.Service;
 import predictor.demo.AppModules.eventData.EventData;
 import predictor.demo.AppModules.eventData.EventDataServiceImp;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @Slf4j
@@ -46,6 +46,7 @@ public class GoogleCalendarService {
             eventDataService.updateEvent(eventData, eventData.getId());
             
             return createdEvent;
+
         } catch (IOException e) {
             log.error("Failed to create Google Calendar event", e);
             throw new Exception("Failed to sync with Google Calendar", e);

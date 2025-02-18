@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -21,7 +22,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import predictor.demo.AppModules.calendar.CalendarController;
 import predictor.demo.AppModules.user.User;
 import predictor.demo.AppModules.user.UserServiceImp;
 import predictor.demo.Error.AppException;
@@ -49,12 +49,15 @@ public class AppConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers("/", "/index.html", "/static/**", "/*.js", "/*.json", "/*.ico").permitAll()
                 .requestMatchers("/api/**").authenticated()
                 .anyRequest().authenticated())
             .oauth2Login(oauth2 -> oauth2
                 .defaultSuccessUrl("http://localhost:3000", true)  // Redirect to React app
-                .failureUrl("/login?error=true"))
+                .failureUrl("/login?error=true")
+                .userInfoEndpoint(userInfo -> userInfo
+                    .userService(oauth2UserService())))
             .cors(Customizer.withDefaults())  // Enable CORS
             .csrf(csrf -> csrf.disable());  // Disable CSRF for API calls
         return http.build();

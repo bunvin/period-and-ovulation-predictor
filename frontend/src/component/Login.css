@@ -1,0 +1,51 @@
+.login-container {
+    @apply flex flex-col items-center justify-center min-h-screen 
+           bg-gradient-to-br from-pink-100 to-purple-100;
+  }
+  
+  .login-card {
+    @apply w-full max-w-md p-8 space-y-6 bg-white rounded-xl shadow-2xl;
+  }
+  
+  .login-header {
+    @apply text-center;
+  }
+  
+  .login-title {
+    @apply text-3xl font-bold text-gray-800 mb-4;
+  }
+  
+  .login-subtitle {
+    @apply text-gray-600 mb-6;
+  }
+  
+  .login-button-container {
+    @apply w-full;
+  }
+  
+  .login-button {
+    @apply w-full flex items-center justify-center py-3 px-4 
+           bg-white border border-gray-300 rounded-lg 
+           text-gray-700 hover:bg-gray-50 
+           transition duration-300 ease-in-out 
+           transform hover:-translate-y-1 hover:scale-105
+           focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+  
+  .login-button-text {
+    @apply font-semibold;
+  }
+  
+  .login-footer {
+    @apply text-center text-sm text-gray-500 mt-4;
+  }
+  
+  .login-link {
+    @apply text-blue-600 hover:underline;
+  }
+  
+  .login-background-decoration {
+    @apply absolute bottom-0 left-0 right-0 h-16 
+           bg-gradient-to-r from-pink-200 to-purple-200 
+           opacity-30 transform skew-y-6;
+  }

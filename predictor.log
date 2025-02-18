@@ -91,3 +91,964 @@
 2025-02-17 11:40:28 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select u1_0.id from user u1_0 where u1_0.google_sub=? limit ?
 2025-02-17 11:40:28 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into user (created_date_time,email,google_sub,is_active,modified_date_time,name,picture,refresh_token) values (?,?,?,?,?,?,?,?)
 2025-02-17 11:40:29 [http-nio-8080-exec-5] INFO  predictor.demo.AppConfiguration - Created new user with Google ID: 114720670413454628998
+2025-02-18 12:37:32 [main] INFO  predictor.demo.DemoApplication - Starting DemoApplication using Java 17.0.13 with PID 18500 (C:\Fullstack_apps\period-and-ovulation-predictor\backend\demo\target\classes started by Danil in C:\Fullstack_apps\period-and-ovulation-predictor)
+2025-02-18 12:37:32 [main] INFO  predictor.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-18 12:37:37 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-18 12:37:37 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-18 12:37:37 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-18 12:37:38 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-18 12:37:38 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-18 12:37:38 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-18 12:37:39 [main] WARN  com.zaxxer.hikari.HikariConfig - predictor-period-ovulation - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2025-02-18 12:37:39 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Starting...
+2025-02-18 12:37:40 [main] INFO  com.zaxxer.hikari.pool.HikariPool - predictor-period-ovulation - Added connection com.mysql.cj.jdbc.ConnectionImpl@67f591c2
+2025-02-18 12:37:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Start completed.
+2025-02-18 12:37:40 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-18 12:37:40 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-18 12:37:40 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (predictor-period-ovulation)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-18 12:37:43 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-18 12:37:47 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-18 12:37:49 [main] INFO  predictor.demo.DemoApplication - Started DemoApplication in 18.914 seconds (process running for 20.0)
+2025-02-18 12:37:58 [http-nio-8080-exec-1] INFO  o.a.tomcat.util.http.parser.Cookie - A cookie header was received [g_state={"i_l":0};] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2025-02-18 12:37:58 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-18 12:37:58 [http-nio-8080-exec-2] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [198] milliseconds.
+2025-02-18 12:38:24 [http-nio-8080-exec-4] INFO  predictor.demo.AppConfiguration - Processing OAuth2 login for: naama.antoniouk@gmail.com
+2025-02-18 12:38:24 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 12:38:24 [http-nio-8080-exec-4] INFO  predictor.demo.AppConfiguration - User not found, will create new user for: naama.antoniouk@gmail.com
+2025-02-18 12:38:24 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select u1_0.id from user u1_0 where u1_0.email=? limit ?
+2025-02-18 12:38:24 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select u1_0.id from user u1_0 where u1_0.google_sub=? limit ?
+2025-02-18 12:38:24 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - insert into user (created_date_time,email,google_sub,is_active,modified_date_time,name,picture,refresh_token) values (?,?,?,?,?,?,?,?)
+2025-02-18 12:38:24 [http-nio-8080-exec-4] INFO  predictor.demo.AppConfiguration - Created new user with Google ID: 114720670413454628998
+2025-02-18 12:38:25 [http-nio-8080-exec-5] INFO  p.d.A.calendar.CalendarController - Fetching user stats
+2025-02-18 12:38:25 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 12:38:25 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - SELECT AVG(e.calculated_cycle_length) FROM events_series e WHERE e.user_id = ? AND e.calculated_cycle_length > 20 AND e.calculated_cycle_length < 60ORDER BY e.prediction_date DESC LIMIT 4
+2025-02-18 12:38:25 [http-nio-8080-exec-5] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1064, SQLState: 42000
+2025-02-18 12:38:25 [http-nio-8080-exec-5] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1
+2025-02-18 12:38:25 [http-nio-8080-exec-5] ERROR p.d.A.calendar.CalendarController - Error fetching user stats
+org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [SELECT AVG(e.calculated_cycle_length) FROM events_series e WHERE e.user_id = ? AND e.calculated_cycle_length > 20 AND e.calculated_cycle_length < 60ORDER BY e.prediction_date DESC LIMIT 4] [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1] [n/a]; SQL [n/a]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:277)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:560)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:343)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:160)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy138.findTop4EventsByUserIdWithAverageCycleLength(Unknown Source)
+	at predictor.demo.AppModules.eventsSeries.EventSeriesServiceImp.calculateCycleLength(EventSeriesServiceImp.java:175)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:723)
+	at predictor.demo.AppModules.eventsSeries.EventSeriesServiceImp$$SpringCGLIB$$0.calculateCycleLength(<generated>)
+	at predictor.demo.AppModules.calendar.CalendarController.getUserStats(CalendarController.java:193)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:220)
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:206)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.ui.DefaultResourcesFilter.doFilter(DefaultResourcesFilter.java:72)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:198)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [SELECT AVG(e.calculated_cycle_length) FROM events_series e WHERE e.user_id = ? AND e.calculated_cycle_length > 20 AND e.calculated_cycle_length < 60ORDER BY e.prediction_date DESC LIMIT 4] [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1] [n/a]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:66)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:268)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:171)
+	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getMetaData(AbstractResultSetAccess.java:36)
+	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getColumnCount(AbstractResultSetAccess.java:52)
+	at org.hibernate.query.results.ResultSetMappingImpl.resolve(ResultSetMappingImpl.java:194)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:340)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:137)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:102)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.executeQuery(JdbcSelectExecutor.java:91)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:165)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:142)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:132)
+	at org.hibernate.query.sql.internal.NativeSelectQueryPlanImpl.performList(NativeSelectQueryPlanImpl.java:135)
+	at org.hibernate.query.sql.internal.NativeQueryImpl.doList(NativeQueryImpl.java:693)
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:143)
+	at org.hibernate.query.spi.AbstractSelectionQuery.getSingleResult(AbstractSelectionQuery.java:275)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$SingleEntityExecution.doExecute(JpaQueryExecution.java:224)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:93)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:152)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:140)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:170)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:149)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	... 122 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1056)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:250)
+	... 152 common frames omitted
+2025-02-18 13:08:05 [main] INFO  predictor.demo.DemoApplication - Starting DemoApplication using Java 17.0.13 with PID 5692 (C:\Fullstack_apps\period-and-ovulation-predictor\backend\demo\target\classes started by Danil in C:\Fullstack_apps\period-and-ovulation-predictor)
+2025-02-18 13:08:05 [main] INFO  predictor.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-18 13:08:11 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-18 13:08:11 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-18 13:08:11 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-18 13:08:11 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-18 13:08:12 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-18 13:08:12 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-18 13:08:13 [main] WARN  com.zaxxer.hikari.HikariConfig - predictor-period-ovulation - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2025-02-18 13:08:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Starting...
+2025-02-18 13:08:14 [main] INFO  com.zaxxer.hikari.pool.HikariPool - predictor-period-ovulation - Added connection com.mysql.cj.jdbc.ConnectionImpl@3ea84e01
+2025-02-18 13:08:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Start completed.
+2025-02-18 13:08:14 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-18 13:08:14 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-18 13:08:14 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (predictor-period-ovulation)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-18 13:08:16 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-18 13:08:20 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-18 13:08:21 [main] INFO  predictor.demo.DemoApplication - Started DemoApplication in 17.53 seconds (process running for 18.523)
+2025-02-18 13:08:46 [http-nio-8080-exec-1] INFO  o.a.tomcat.util.http.parser.Cookie - A cookie header was received [g_state={"i_l":0};] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2025-02-18 13:08:46 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-18 13:08:47 [http-nio-8080-exec-1] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [152] milliseconds.
+2025-02-18 13:08:52 [http-nio-8080-exec-3] INFO  predictor.demo.AppConfiguration - Processing OAuth2 login for: naama.antoniouk@gmail.com
+2025-02-18 13:08:52 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 13:08:53 [http-nio-8080-exec-3] INFO  predictor.demo.AppConfiguration - Found existing user: naama.antoniouk@gmail.com
+2025-02-18 13:26:12 [main] INFO  predictor.demo.DemoApplication - Starting DemoApplication using Java 17.0.13 with PID 1528 (C:\Fullstack_apps\period-and-ovulation-predictor\backend\demo\target\classes started by Danil in C:\Fullstack_apps\period-and-ovulation-predictor)
+2025-02-18 13:26:12 [main] INFO  predictor.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-18 13:26:18 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-18 13:26:18 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-18 13:26:18 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-18 13:26:19 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-18 13:26:19 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-18 13:26:19 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-18 13:26:20 [main] WARN  com.zaxxer.hikari.HikariConfig - predictor-period-ovulation - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2025-02-18 13:26:20 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Starting...
+2025-02-18 13:26:21 [main] INFO  com.zaxxer.hikari.pool.HikariPool - predictor-period-ovulation - Added connection com.mysql.cj.jdbc.ConnectionImpl@7856f41a
+2025-02-18 13:26:21 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Start completed.
+2025-02-18 13:26:21 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-18 13:26:21 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-18 13:26:21 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (predictor-period-ovulation)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-18 13:26:24 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-18 13:26:27 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-18 13:26:29 [main] INFO  predictor.demo.DemoApplication - Started DemoApplication in 18.039 seconds (process running for 19.059)
+2025-02-18 13:26:44 [http-nio-8080-exec-1] INFO  o.a.tomcat.util.http.parser.Cookie - A cookie header was received [g_state={"i_l":0};] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2025-02-18 13:26:44 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-18 13:26:45 [http-nio-8080-exec-2] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [195] milliseconds.
+2025-02-18 13:33:59 [main] INFO  predictor.demo.DemoApplication - Starting DemoApplication using Java 17.0.13 with PID 16500 (C:\Fullstack_apps\period-and-ovulation-predictor\backend\demo\target\classes started by Danil in C:\Fullstack_apps\period-and-ovulation-predictor)
+2025-02-18 13:33:59 [main] INFO  predictor.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-18 13:34:05 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-18 13:34:05 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-18 13:34:05 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-18 13:34:05 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-18 13:34:05 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-18 13:34:05 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-18 13:34:06 [main] WARN  com.zaxxer.hikari.HikariConfig - predictor-period-ovulation - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2025-02-18 13:34:06 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Starting...
+2025-02-18 13:34:07 [main] INFO  com.zaxxer.hikari.pool.HikariPool - predictor-period-ovulation - Added connection com.mysql.cj.jdbc.ConnectionImpl@7856f41a
+2025-02-18 13:34:07 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Start completed.
+2025-02-18 13:34:08 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-18 13:34:08 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-18 13:34:08 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (predictor-period-ovulation)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-18 13:34:10 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-18 13:34:14 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-18 13:34:15 [main] INFO  predictor.demo.DemoApplication - Started DemoApplication in 17.763 seconds (process running for 18.825)
+2025-02-18 13:34:33 [http-nio-8080-exec-1] INFO  o.a.tomcat.util.http.parser.Cookie - A cookie header was received [g_state={"i_l":0};] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2025-02-18 13:34:33 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-18 13:34:34 [http-nio-8080-exec-2] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [161] milliseconds.
+2025-02-18 14:53:33 [http-nio-8080-exec-5] INFO  predictor.demo.AppConfiguration - Processing OAuth2 login for: naama.antoniouk@gmail.com
+2025-02-18 14:53:33 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 14:53:33 [http-nio-8080-exec-5] INFO  predictor.demo.AppConfiguration - Found existing user: naama.antoniouk@gmail.com
+2025-02-18 14:58:50 [http-nio-8080-exec-8] INFO  p.d.A.calendar.CalendarController - Fetching user stats
+2025-02-18 14:58:50 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 14:58:50 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - SELECT AVG(e.calculated_cycle_length) FROM events_series e WHERE e.user_id = ? AND e.calculated_cycle_length > 20 AND e.calculated_cycle_length < 60ORDER BY e.prediction_date DESC LIMIT 4
+2025-02-18 14:58:50 [http-nio-8080-exec-8] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1064, SQLState: 42000
+2025-02-18 14:58:50 [http-nio-8080-exec-8] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1
+2025-02-18 14:58:50 [http-nio-8080-exec-8] ERROR p.d.A.calendar.CalendarController - Error fetching user stats
+org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [SELECT AVG(e.calculated_cycle_length) FROM events_series e WHERE e.user_id = ? AND e.calculated_cycle_length > 20 AND e.calculated_cycle_length < 60ORDER BY e.prediction_date DESC LIMIT 4] [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1] [n/a]; SQL [n/a]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:277)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:560)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:343)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:160)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy138.findTop4EventsByUserIdWithAverageCycleLength(Unknown Source)
+	at predictor.demo.AppModules.eventsSeries.EventSeriesServiceImp.calculateCycleLength(EventSeriesServiceImp.java:175)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:723)
+	at predictor.demo.AppModules.eventsSeries.EventSeriesServiceImp$$SpringCGLIB$$0.calculateCycleLength(<generated>)
+	at predictor.demo.AppModules.calendar.CalendarController.getUserStats(CalendarController.java:193)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:220)
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:206)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.ui.DefaultResourcesFilter.doFilter(DefaultResourcesFilter.java:72)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:198)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [SELECT AVG(e.calculated_cycle_length) FROM events_series e WHERE e.user_id = ? AND e.calculated_cycle_length > 20 AND e.calculated_cycle_length < 60ORDER BY e.prediction_date DESC LIMIT 4] [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1] [n/a]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:66)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:268)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:171)
+	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getMetaData(AbstractResultSetAccess.java:36)
+	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getColumnCount(AbstractResultSetAccess.java:52)
+	at org.hibernate.query.results.ResultSetMappingImpl.resolve(ResultSetMappingImpl.java:194)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:340)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:137)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:102)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.executeQuery(JdbcSelectExecutor.java:91)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:165)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:142)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:132)
+	at org.hibernate.query.sql.internal.NativeSelectQueryPlanImpl.performList(NativeSelectQueryPlanImpl.java:135)
+	at org.hibernate.query.sql.internal.NativeQueryImpl.doList(NativeQueryImpl.java:693)
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:143)
+	at org.hibernate.query.spi.AbstractSelectionQuery.getSingleResult(AbstractSelectionQuery.java:275)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$SingleEntityExecution.doExecute(JpaQueryExecution.java:224)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:93)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:152)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:140)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:170)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:149)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	... 122 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1056)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:250)
+	... 152 common frames omitted
+2025-02-18 14:58:52 [http-nio-8080-exec-9] INFO  p.d.A.calendar.CalendarController - Fetching user stats
+2025-02-18 14:58:52 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 14:58:52 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - SELECT AVG(e.calculated_cycle_length) FROM events_series e WHERE e.user_id = ? AND e.calculated_cycle_length > 20 AND e.calculated_cycle_length < 60ORDER BY e.prediction_date DESC LIMIT 4
+2025-02-18 14:58:52 [http-nio-8080-exec-9] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1064, SQLState: 42000
+2025-02-18 14:58:52 [http-nio-8080-exec-9] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1
+2025-02-18 14:58:52 [http-nio-8080-exec-9] ERROR p.d.A.calendar.CalendarController - Error fetching user stats
+org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [SELECT AVG(e.calculated_cycle_length) FROM events_series e WHERE e.user_id = ? AND e.calculated_cycle_length > 20 AND e.calculated_cycle_length < 60ORDER BY e.prediction_date DESC LIMIT 4] [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1] [n/a]; SQL [n/a]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:277)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:560)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:343)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:160)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy138.findTop4EventsByUserIdWithAverageCycleLength(Unknown Source)
+	at predictor.demo.AppModules.eventsSeries.EventSeriesServiceImp.calculateCycleLength(EventSeriesServiceImp.java:175)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:723)
+	at predictor.demo.AppModules.eventsSeries.EventSeriesServiceImp$$SpringCGLIB$$0.calculateCycleLength(<generated>)
+	at predictor.demo.AppModules.calendar.CalendarController.getUserStats(CalendarController.java:193)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:220)
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:206)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.ui.DefaultResourcesFilter.doFilter(DefaultResourcesFilter.java:72)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:198)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [SELECT AVG(e.calculated_cycle_length) FROM events_series e WHERE e.user_id = ? AND e.calculated_cycle_length > 20 AND e.calculated_cycle_length < 60ORDER BY e.prediction_date DESC LIMIT 4] [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1] [n/a]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:66)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:268)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:171)
+	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getMetaData(AbstractResultSetAccess.java:36)
+	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getColumnCount(AbstractResultSetAccess.java:52)
+	at org.hibernate.query.results.ResultSetMappingImpl.resolve(ResultSetMappingImpl.java:194)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:340)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:137)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:102)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.executeQuery(JdbcSelectExecutor.java:91)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:165)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:142)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:132)
+	at org.hibernate.query.sql.internal.NativeSelectQueryPlanImpl.performList(NativeSelectQueryPlanImpl.java:135)
+	at org.hibernate.query.sql.internal.NativeQueryImpl.doList(NativeQueryImpl.java:693)
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:143)
+	at org.hibernate.query.spi.AbstractSelectionQuery.getSingleResult(AbstractSelectionQuery.java:275)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$SingleEntityExecution.doExecute(JpaQueryExecution.java:224)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:93)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:152)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:140)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:170)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:149)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	... 122 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1056)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:250)
+	... 152 common frames omitted
+2025-02-18 14:59:00 [http-nio-8080-exec-1] INFO  predictor.demo.AppConfiguration - Processing OAuth2 login for: naama.antoniouk@gmail.com
+2025-02-18 14:59:00 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 14:59:00 [http-nio-8080-exec-1] INFO  predictor.demo.AppConfiguration - Found existing user: naama.antoniouk@gmail.com
+2025-02-18 14:59:00 [http-nio-8080-exec-2] INFO  p.d.A.calendar.CalendarController - Fetching user stats
+2025-02-18 14:59:00 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 14:59:00 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - SELECT AVG(e.calculated_cycle_length) FROM events_series e WHERE e.user_id = ? AND e.calculated_cycle_length > 20 AND e.calculated_cycle_length < 60ORDER BY e.prediction_date DESC LIMIT 4
+2025-02-18 14:59:00 [http-nio-8080-exec-2] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1064, SQLState: 42000
+2025-02-18 14:59:00 [http-nio-8080-exec-2] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1
+2025-02-18 14:59:00 [http-nio-8080-exec-2] ERROR p.d.A.calendar.CalendarController - Error fetching user stats
+org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [SELECT AVG(e.calculated_cycle_length) FROM events_series e WHERE e.user_id = ? AND e.calculated_cycle_length > 20 AND e.calculated_cycle_length < 60ORDER BY e.prediction_date DESC LIMIT 4] [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1] [n/a]; SQL [n/a]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:277)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:560)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:343)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:160)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy138.findTop4EventsByUserIdWithAverageCycleLength(Unknown Source)
+	at predictor.demo.AppModules.eventsSeries.EventSeriesServiceImp.calculateCycleLength(EventSeriesServiceImp.java:175)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:723)
+	at predictor.demo.AppModules.eventsSeries.EventSeriesServiceImp$$SpringCGLIB$$0.calculateCycleLength(<generated>)
+	at predictor.demo.AppModules.calendar.CalendarController.getUserStats(CalendarController.java:193)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:257)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:220)
+	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:206)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.ui.DefaultResourcesFilter.doFilter(DefaultResourcesFilter.java:72)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:198)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [SELECT AVG(e.calculated_cycle_length) FROM events_series e WHERE e.user_id = ? AND e.calculated_cycle_length > 20 AND e.calculated_cycle_length < 60ORDER BY e.prediction_date DESC LIMIT 4] [You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1] [n/a]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:66)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:268)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:171)
+	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getMetaData(AbstractResultSetAccess.java:36)
+	at org.hibernate.sql.results.jdbc.internal.AbstractResultSetAccess.getColumnCount(AbstractResultSetAccess.java:52)
+	at org.hibernate.query.results.ResultSetMappingImpl.resolve(ResultSetMappingImpl.java:194)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.resolveJdbcValuesSource(JdbcSelectExecutorStandardImpl.java:340)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:137)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:102)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.executeQuery(JdbcSelectExecutor.java:91)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:165)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:142)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:132)
+	at org.hibernate.query.sql.internal.NativeSelectQueryPlanImpl.performList(NativeSelectQueryPlanImpl.java:135)
+	at org.hibernate.query.sql.internal.NativeQueryImpl.doList(NativeQueryImpl.java:693)
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:143)
+	at org.hibernate.query.spi.AbstractSelectionQuery.getSingleResult(AbstractSelectionQuery.java:275)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$SingleEntityExecution.doExecute(JpaQueryExecution.java:224)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:93)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:152)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:140)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:170)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:149)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	... 122 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY e.prediction_date DESC LIMIT 4' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1056)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:250)
+	... 152 common frames omitted
+2025-02-18 15:01:51 [http-nio-8080-exec-4] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:01:51 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:01:51 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:01:51 [http-nio-8080-exec-5] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:01:51 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:01:51 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:02:01 [http-nio-8080-exec-7] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:02:01 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:02:01 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:02:01 [http-nio-8080-exec-8] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:02:01 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:02:01 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:02:28 [http-nio-8080-exec-9] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:02:28 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:02:28 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:02:38 [http-nio-8080-exec-10] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:02:38 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:02:38 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:03:23 [http-nio-8080-exec-1] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:03:23 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:03:23 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:03:23 [http-nio-8080-exec-2] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:03:23 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:03:23 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:03:42 [http-nio-8080-exec-3] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:03:42 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:03:42 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:04:33 [http-nio-8080-exec-4] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:04:33 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:04:33 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:04:33 [http-nio-8080-exec-5] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:04:33 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:04:33 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:05:02 [http-nio-8080-exec-6] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:05:02 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:05:02 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:05:02 [http-nio-8080-exec-7] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:05:02 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:05:02 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:05:13 [http-nio-8080-exec-8] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:05:13 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:05:13 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:06:01 [http-nio-8080-exec-9] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:06:01 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:06:01 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:06:01 [http-nio-8080-exec-10] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:06:01 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:06:01 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:06:03 [http-nio-8080-exec-2] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:06:03 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:06:03 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:06:07 [http-nio-8080-exec-3] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:06:07 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:06:07 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:06:18 [http-nio-8080-exec-4] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:06:18 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:06:18 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:06:37 [http-nio-8080-exec-5] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:06:37 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:06:37 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:06:37 [http-nio-8080-exec-6] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:06:37 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:06:37 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:06:53 [http-nio-8080-exec-7] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:06:53 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:06:53 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:07:28 [http-nio-8080-exec-8] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:07:28 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:07:28 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:07:57 [http-nio-8080-exec-10] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:07:57 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:07:57 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:07:57 [http-nio-8080-exec-1] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:07:57 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:07:57 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:08:43 [http-nio-8080-exec-2] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:08:43 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:08:43 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:08:43 [http-nio-8080-exec-3] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:08:43 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:08:43 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:08:44 [http-nio-8080-exec-4] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:08:44 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:08:44 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:08:48 [http-nio-8080-exec-5] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:08:48 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:08:48 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:08:54 [http-nio-8080-exec-7] INFO  p.d.A.calendar.CalendarController - Adding new period event
+2025-02-18 15:08:54 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:08:54 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-18 15:08:55 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-18 15:08:55 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-18 15:09:08 [http-nio-8080-exec-8] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:09:08 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:09:08 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:09:08 [http-nio-8080-exec-9] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:09:08 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:09:08 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0
+2025-02-18 15:09:10 [http-nio-8080-exec-1] INFO  p.d.A.calendar.CalendarController - Deleting event: 11
+2025-02-18 15:09:10 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:09:10 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,es1_0.id,es1_0.calculated_cycle_length,es1_0.prediction_date,es1_0.user_id,u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user,u2_0.id,u2_0.created_date_time,u2_0.email,u2_0.google_sub,u2_0.is_active,u2_0.modified_date_time,u2_0.name,u2_0.picture,u2_0.refresh_token from event_data ed1_0 left join events_series es1_0 on es1_0.id=ed1_0.events_series left join user u1_0 on u1_0.id=es1_0.user_id join user u2_0 on u2_0.id=ed1_0.user where ed1_0.id=?
+2025-02-18 15:09:10 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-18 15:09:10 [http-nio-8080-exec-2] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-18 15:09:10 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-18 15:09:10 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user from event_data ed1_0 where ed1_0.user=? and ed1_0.is_predicted=0

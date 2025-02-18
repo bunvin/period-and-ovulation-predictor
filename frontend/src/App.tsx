@@ -1,97 +1,48 @@
-// App.tsx
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Layout from "./component/Layout";
+import Login from "./component/Login";
+import { userService } from './services/api';
 import axios from 'axios';
-
-// Define interfaces for our data types
-interface User {
-  id: number;
-  email: string;
-  name: string;
-  picture?: string;
-}
-
-interface CalendarStats {
-  averageCycleLength: number;
-  eventCount: number;
-}
+import { EventData } from './types';
 
 const App: React.FC = () => {
-  const [user, setUser] = useState<User | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    // Check if user is authenticated
-    axios.get<CalendarStats>('http://localhost:8080/api/calendar/stats', { 
-      withCredentials: true 
-    })
-      .then(response => {
-        // Fetch user details after confirming authentication
-        return axios.get<User>('http://localhost:8080/api/users/me', {
-          withCredentials: true
-        });
-      })
-      .then(response => {
-        setUser(response.data);
+    const checkAuthentication = async () => {
+      let events: any | EventData[];
+        try {
+        // Try to fetch user stats as an authentication check
+            events= await userService.getPeriods();
+        setIsAuthenticated(true);
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          // If 401 or other auth-related error, user is not authenticated
+          if (error.response?.status === 401) {
+            setIsAuthenticated(false);
+          } else {
+            console.error('Unexpected error:', error);
+          }
+        }
+        setIsAuthenticated(false);
+      } finally {
         setLoading(false);
-      })
-      .catch((error: Error) => {
-        console.error('Authentication error:', error);
-        setUser(null);
-        setLoading(false);
-      });
+      }
+    };
+
+    checkAuthentication();
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+      </div>
+    );
   }
 
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={user ? <Dashboard user={user} /> : <Login />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </Router>
-  );
-};
-
-// Login component
-const Login: React.FC = () => {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="p-8 bg-white rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">
-          Welcome to Period & Ovulation Predictor
-        </h1>
-        <a
-          href="http://localhost:8080/oauth2/authorization/google"
-          className="flex items-center justify-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
-          <img 
-            src="https://www.google.com/favicon.ico" 
-            alt="Google" 
-            className="w-5 h-5 mr-2"
-          />
-          Login with Google
-        </a>
-      </div>
-    </div>
-  );
-};
-
-// Dashboard component
-interface DashboardProps {
-  user: User;
-}
-
-const Dashboard: React.FC<DashboardProps> = ({ user }) => {
-  // Will implement later
-  return (
-    <div>
-      <h1>Welcome, {user.name}!</h1>
-      {/* Add dashboard content */}
-    </div>
-  );
+  return isAuthenticated ? <Layout /> : <Login />;
 };
 
 export default App;
