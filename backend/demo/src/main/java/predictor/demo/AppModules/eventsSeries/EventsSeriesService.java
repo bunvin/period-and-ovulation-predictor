@@ -14,4 +14,5 @@ public interface EventsSeriesService {
 
     EventsSeries createNewEventsSeries(User user, EventData periodStart) throws AppException; //by last actual preduct and saveAll
     double calculateCycleLength(User user);
+    boolean isUserExist(int userId);
 }

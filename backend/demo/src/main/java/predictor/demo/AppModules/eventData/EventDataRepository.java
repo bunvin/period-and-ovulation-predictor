@@ -1,6 +1,7 @@
 package predictor.demo.AppModules.eventData;
 
 import jakarta.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -17,9 +18,12 @@ public interface EventDataRepository extends JpaRepository<EventData, Integer> {
     @Query("DELETE FROM EventData e WHERE e.user.id = :userId AND e.isPredicted = true")
     void deleteAllPredictedEventsByUserId(@Param("userId") int userId);
 
-    @Query("SELECT e FROM EventData e WHERE e.isPeriodFirstDay = true AND e.isPredicted = false" +
-            " AND e.user.id = :userId ORDER BY e.eventDate DESC")
-    EventData findMostRecentPeriodFirstDayEvent(@Param("userId") int userId);
+@Query(value = "SELECT * FROM event_data WHERE id = (" +
+               "SELECT MAX(id) FROM event_data " +
+               "WHERE user_id = :userId " +
+               "AND is_period_first_day = true AND is_predicted = false)"
+            , nativeQuery = true)
+EventData findMostRecentPeriodFirstDayEvent(@Param("userId") int userId);
 
     @Query("SELECT e FROM EventData e WHERE e.user.id = :userId AND e.isPredicted = true")
     List<EventData> getAllUserPredictedEvents(@Param("userId") int userId);
@@ -29,5 +33,19 @@ public interface EventDataRepository extends JpaRepository<EventData, Integer> {
 
     @Query("SELECT COUNT(e) FROM EventData e WHERE e.user.id = :userId AND e.isPredicted = false")
     long countByUserAndIsPredictedFalse(@Param("userId") int userId);
+
+    @Query(value = "SELECT e FROM EventData e " +
+        "WHERE e.user.id = :userId AND e.isPredicted = false AND e.isPeriodFirstDay = true " +
+        "ORDER BY e.eventDate DESC", nativeQuery = true)
+    List<EventData> findTop4RecentPeriodFirstDayEvents(@Param("userId") int userId);
+
+    @Query(value = "SELECT AVG(FUNCTION('DATEDIFF', e1.eventDate, e2.eventDate)) " +
+        "FROM EventData e1 " +
+        "JOIN EventData e2 ON e2.eventDate < e1.eventDate " +
+        "WHERE e1.user.id = :userId AND e2.user.id = :userId " +
+        "AND e1.isPeriodFirstDay = true AND e2.isPeriodFirstDay = true " +
+        "AND e1.isPredicted = false AND e2.isPredicted = false " +
+        "ORDER BY e1.eventDate DESC", nativeQuery = true)
+    Double calculateAverageCycleLength(@Param("userId") int userId);
 
 }

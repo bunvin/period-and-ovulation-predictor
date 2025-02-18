@@ -16,7 +16,7 @@ public interface EventsSeriesRepository extends JpaRepository<EventsSeries, Inte
     @Query(value = "SELECT AVG(e.calculated_cycle_length) " +
             "FROM events_series e " +
             "WHERE e.user_id = :userId " +
-            "AND e.calculated_cycle_length > 20 AND e.calculated_cycle_length < 60" +
+            "AND e.calculated_cycle_length > 20 AND e.calculated_cycle_length < 60 " +
             "ORDER BY e.prediction_date DESC " +
             "LIMIT 4", nativeQuery = true)
     double findTop4EventsByUserIdWithAverageCycleLength(@Param("userId") int userId);

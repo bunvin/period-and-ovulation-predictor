@@ -64,4 +64,9 @@ public class EventDataServiceImp implements EventDataService {
         return this.eventRepository.getAllUserActualEvents(userId);
     }
 
+    @Override
+    public double calculateCycleLength(int userId) {
+        return this.eventRepository.calculateAverageCycleLength(userId);
+    }
+
 }

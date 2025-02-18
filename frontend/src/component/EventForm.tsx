@@ -3,6 +3,7 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import './EventForm.css';
+import { calendarService } from '../services/api';
 
 const EventForm: React.FC = () => {
   const [date, setDate] = useState<Date>(new Date());
@@ -47,19 +48,27 @@ const EventForm: React.FC = () => {
     setPredictionSuccess(false);
 
     try {
-      await axios.post('http://localhost:8080/api/calendar/predictions/generate', 
-        {}, // Empty payload as backend gets latest period
-        { withCredentials: true }
-      );
-
-      setPredictionSuccess(true);
-      setTimeout(() => setPredictionSuccess(false), 3000); // Clear success message after 3 seconds
+        await calendarService.generatePredictions();
+        
+        setPredictionSuccess(true);
+        setTimeout(() => setPredictionSuccess(false), 3000);
     } catch (err) {
-      setError('Failed to generate predictions. Please make sure you have at least two period events.');
+        console.error(err); // Log the full error for debugging
+        
+        // Handle different error scenarios
+        if (axios.isAxiosError(err)) {
+            // Extract error message from the response
+            const errorMessage = err.response?.data?.message || 
+                                 err.response?.data?.error || 
+                                 'Failed to generate predictions';
+            setError(errorMessage);
+        } else {
+            setError('An unexpected error occurred');
+        }
     } finally {
-      setPredictionLoading(false);
+        setPredictionLoading(false);
     }
-  };
+};
 
   return (
     <div className="event-form-container">

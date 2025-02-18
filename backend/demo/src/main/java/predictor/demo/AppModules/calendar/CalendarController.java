@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
 import predictor.demo.AppModules.eventData.EventData;
+import predictor.demo.AppModules.eventData.EventDataError;
 import predictor.demo.AppModules.eventData.EventDataServiceImp;
 import predictor.demo.AppModules.eventsSeries.EventSeriesServiceImp;
 import predictor.demo.AppModules.user.User;
@@ -121,27 +122,28 @@ public class CalendarController {
      */
     @PostMapping("/predictions/generate")
     public ResponseEntity<?> generatePredictions(
-            @AuthenticationPrincipal OAuth2User principal,
-            @RequestBody Map<String, String> payload) {
+            @AuthenticationPrincipal OAuth2User principal) {
         try {
             log.info("Generating new predictions");
             User user = userService.getCurrentUser(principal);
-            LocalDate latestPeriodDate = LocalDate.parse(payload.get("latestPeriodDate"));
-
-            // Create event for the latest period
-            EventData latestPeriod = new EventData.EventDataBuilder()
-                    .eventDate(latestPeriodDate)
-                    .title("Period")
-                    .user(user)
-                    .isPeriodFirstDay(true)
-                    .isPredicted(false)
-                    .isSync(false)
-                    .build();
+            EventData latestPeriod = eventDataService.getLastPeriod(user.getId());
+            if (latestPeriod == null) {
+                return ResponseEntity
+                    .badRequest()
+                    .body("No recent period found to generate predictions");
+            }
 
             // Generate new predictions
-            eventsSeriesService.createNewEventsSeries(user, latestPeriod);
+            //check if first Prediction
+            if(!this.eventsSeriesService.isUserExist(user.getId())){
+                this.eventsSeriesService.createFirstNewEventsSeries(user);
+            }
+            else {
+                this.eventsSeriesService.createNewEventsSeries(user, latestPeriod);
+            }
 
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok("Predictions generated successfully");
+
         } catch (Exception e) {
             log.error("Error generating predictions", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();

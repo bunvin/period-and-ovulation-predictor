@@ -123,6 +123,23 @@ public void deleteEventSeries(int eventSeriesId) throws AppException {
         return eventsSeries;
     }
 
+    public EventsSeries createFirstNewEventsSeries(User user) throws AppException {
+        double cycleLength = this.eventServiceImp.calculateCycleLength(user.getId());
+        EventData lastPeriod = this.eventServiceImp.getLastPeriod(user.getId());
+        
+        // Create new eventSeries
+        EventsSeries eventsSeries = new EventsSeries.Builder()
+                .setUser(user)
+                .setCalculatedCycleLength(cycleLength)
+                .setPredictionDate(lastPeriod.getEventDate())
+                .build();
+
+        // Add new predictions and sync with calendar
+        eventsSeries = this.predictionPeriodOvulation(eventsSeries);
+
+        return eventsSeries;
+    }
+
     public EventsSeries predictionPeriodOvulation(EventsSeries eventsSeries) throws AppException {
         EventData lastPeriod = this.eventServiceImp.getLastPeriod(eventsSeries.getUser().getId());
         LocalDate ovulation = lastPeriod.getEventDate().plusDays((int) eventsSeries.getCalculatedCycleLength()/2);
@@ -174,4 +191,9 @@ public void deleteEventSeries(int eventSeriesId) throws AppException {
     public double calculateCycleLength(User user) {
         return this.eventsSeriesRepository.findTop4EventsByUserIdWithAverageCycleLength(user.getId());
     }
-}
+
+    @Override
+    public boolean isUserExist(int userId) {
+            return this.eventsSeriesRepository.existsByUserId(userId);
+        };
+    }

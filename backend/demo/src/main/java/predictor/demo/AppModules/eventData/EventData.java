@@ -15,13 +15,15 @@ public class EventData {
     private int id;
 
     private String title;
+
+    @Column(name = "event_date")
     private LocalDate eventDate;
     private boolean isPeriodFirstDay;
     private boolean isPredicted;
     private boolean isSync = false;
 
     @ManyToOne
-    @JoinColumn(name = "user", nullable = false, updatable = false)
+    @JoinColumn(name = "user_id", nullable = false, updatable = false)
     private User user;
 
     @ManyToOne
