@@ -26,16 +26,18 @@ const EventForm: React.FC = () => {
     setSuccess(false);
 
     try {
-      await axios.post('http://localhost:8080/api/calendar/periods', {
-        date: date.toISOString().split('T')[0]
-      }, {
-        withCredentials: true
-      });
-
+      await calendarService.addPeriod(date.toISOString().split('T')[0]);
       setDate(new Date());
       setSuccess(true);
     } catch (err) {
-      setError('Failed to add period event');
+      if (axios.isAxiosError(err)) {
+        const errorMessage = err.response?.data?.message || 
+                           err.response?.data?.error || 
+                           'Failed to add period event';
+        setError(errorMessage);
+      } else {
+        setError('An unexpected error occurred');
+      }
     } finally {
       setLoading(false);
     }

@@ -1,9 +1,8 @@
 import './EventList.css';
-
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { EventData } from '../types';
-import './EventList.css';
+import { userService, calendarService } from '../services/api';
+import axios from 'axios';
 
 const EventList: React.FC = () => {
   const [events, setEvents] = useState<EventData[]>([]);
@@ -16,12 +15,17 @@ const EventList: React.FC = () => {
 
   const fetchEvents = async (): Promise<void> => {
     try {
-      const response = await axios.get<EventData[]>('http://localhost:8080/api/calendar/periods', {
-        withCredentials: true
-      });
+      const response = await userService.getPeriods();
       setEvents(response.data);
     } catch (err) {
-      setError('Failed to fetch events');
+      if (axios.isAxiosError(err)) {
+        const errorMessage = err.response?.data?.message || 
+                           err.response?.data?.error || 
+                           'Failed to fetch events';
+        setError(errorMessage);
+      } else {
+        setError('Failed to fetch events');
+      }
     } finally {
       setLoading(false);
     }
@@ -29,12 +33,17 @@ const EventList: React.FC = () => {
 
   const handleDelete = async (eventId: number): Promise<void> => {
     try {
-      await axios.delete(`http://localhost:8080/api/calendar/events/${eventId}`, {
-        withCredentials: true
-      });
+      await calendarService.deleteEvent(eventId);
       await fetchEvents(); // Refresh the list
     } catch (err) {
-      setError('Failed to delete event');
+      if (axios.isAxiosError(err)) {
+        const errorMessage = err.response?.data?.message || 
+                           err.response?.data?.error ||
+                           'Failed to delete event';
+        setError(errorMessage);
+      } else {
+        setError('Failed to delete event');
+      }
     }
   };
 
