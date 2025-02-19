@@ -106,7 +106,7 @@ public void deleteEventSeries(int eventSeriesId) throws AppException {
         if(this.eventsSeriesRepository.existsByUserId(user.getId())){
             EventsSeries existingSeries = this.eventsSeriesRepository.findByUserId(user.getId());
             cycleLength = existingSeries.getCalculatedCycleLength();
-            deleteAllPredictions(existingSeries);
+            deleteEventSeries(existingSeries.getId());
         } else { //anew user
             cycleLength = this.eventServiceImp.calculateCycleLength(user.getId());
         }

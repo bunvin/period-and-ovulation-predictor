@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
 import predictor.demo.AppModules.eventData.EventData;
-import predictor.demo.AppModules.eventData.EventDataError;
 import predictor.demo.AppModules.eventData.EventDataServiceImp;
 import predictor.demo.AppModules.eventsSeries.EventSeriesServiceImp;
 import predictor.demo.AppModules.eventsSeries.EventsSeries;
