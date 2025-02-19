@@ -1,51 +1,80 @@
 .login-container {
-    @apply flex flex-col items-center justify-center min-h-screen 
-           bg-gradient-to-br from-pink-100 to-purple-100;
-  }
-  
-  .login-card {
-    @apply w-full max-w-md p-8 space-y-6 bg-white rounded-xl shadow-2xl;
-  }
-  
-  .login-header {
-    @apply text-center;
-  }
-  
-  .login-title {
-    @apply text-3xl font-bold text-gray-800 mb-4;
-  }
-  
-  .login-subtitle {
-    @apply text-gray-600 mb-6;
-  }
-  
-  .login-button-container {
-    @apply w-full;
-  }
-  
-  .login-button {
-    @apply w-full flex items-center justify-center py-3 px-4 
-           bg-white border border-gray-300 rounded-lg 
-           text-gray-700 hover:bg-gray-50 
-           transition duration-300 ease-in-out 
-           transform hover:-translate-y-1 hover:scale-105
-           focus:outline-none focus:ring-2 focus:ring-blue-500;
-  }
-  
-  .login-button-text {
-    @apply font-semibold;
-  }
-  
-  .login-footer {
-    @apply text-center text-sm text-gray-500 mt-4;
-  }
-  
-  .login-link {
-    @apply text-blue-600 hover:underline;
-  }
-  
-  .login-background-decoration {
-    @apply absolute bottom-0 left-0 right-0 h-16 
-           bg-gradient-to-r from-pink-200 to-purple-200 
-           opacity-30 transform skew-y-6;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f16cb8, darkred);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 28rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.login-header {
+  text-align: center;
+}
+
+.login-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.login-subtitle {
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+}
+
+.login-button-container {
+  width: 100%;
+}
+
+.login-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  color: #374151;
+  transition: all 0.3s ease-in-out;
+}
+
+.login-button:hover {
+  background-color: #f9fafb;
+  transform: translateY(-0.25rem) scale(1.05);
+}
+
+.login-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.login-button-text {
+  font-weight: 600;
+}
+
+.login-footer {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 1rem;
+}
+
+.login-link {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.login-link:hover {
+  text-decoration: none;
+}

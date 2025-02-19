@@ -1,4 +1,10 @@
 import React from 'react';
+import './Login.css';
+import { NavLink } from 'react-router-dom';
+
+function termAndAgreement(): void {
+  alert("I know nothing, this is just for fun")
+}
 
 const GoogleIcon = () => (
   <svg 
@@ -59,14 +65,7 @@ const Login: React.FC = () => {
 
         <div className="login-footer">
           <p>
-            By logging in, you agree to our{' '}
-            <a href="/terms" className="login-link">
-              Terms of Service
-            </a>{' '}
-            and{' '}
-            <a href="/privacy" className="login-link">
-              Privacy Policy
-            </a>
+            By logging in, you agree to our Terms of Service and Privacy Policy
           </p>
         </div>
       </div>

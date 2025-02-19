@@ -1,4 +1,12 @@
 .Layout {
-    padding-top: 50px;
-}
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, rgb(186, 12, 12), rgb(80, 1, 1));
+
+    color:darksalmon
+  }
+
+
 
