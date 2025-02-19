@@ -23,6 +23,7 @@ import predictor.demo.AppModules.eventData.EventData;
 import predictor.demo.AppModules.eventData.EventDataError;
 import predictor.demo.AppModules.eventData.EventDataServiceImp;
 import predictor.demo.AppModules.eventsSeries.EventSeriesServiceImp;
+import predictor.demo.AppModules.eventsSeries.EventsSeries;
 import predictor.demo.AppModules.user.User;
 import predictor.demo.AppModules.user.UserServiceImp;
 import predictor.demo.Error.AppException;
@@ -133,14 +134,7 @@ public class CalendarController {
                     .body("No recent period found to generate predictions");
             }
 
-            // Generate new predictions
-            //check if first Prediction
-            if(!this.eventsSeriesService.isUserExist(user.getId())){
-                this.eventsSeriesService.createFirstNewEventsSeries(user);
-            }
-            else {
-                this.eventsSeriesService.createNewEventsSeries(user, latestPeriod);
-            }
+            EventsSeries newPrediction = this.eventsSeriesService.createNewEventsSeries(user);
 
             return ResponseEntity.ok("Predictions generated successfully");
 

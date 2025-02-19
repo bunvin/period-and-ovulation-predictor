@@ -1,6 +1,4 @@
 package predictor.demo.AppModules.eventsSeries;
-
-import predictor.demo.AppModules.eventData.EventData;
 import predictor.demo.AppModules.user.User;
 import predictor.demo.Error.AppException;
 
@@ -12,7 +10,8 @@ public interface EventsSeriesService {
 
     void deleteAllPredictions(EventsSeries eventSeries) throws AppException;
 
-    EventsSeries createNewEventsSeries(User user, EventData periodStart) throws AppException; //by last actual preduct and saveAll
+    EventsSeries predictionPeriodOvulation(EventsSeries eventsSeries) throws AppException, Exception;
+    EventsSeries createNewEventsSeries(User user) throws AppException, Exception;     
     double calculateCycleLength(User user);
     boolean isUserExist(int userId);
 }

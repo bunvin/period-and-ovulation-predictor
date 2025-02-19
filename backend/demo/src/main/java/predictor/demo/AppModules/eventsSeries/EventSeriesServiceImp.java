@@ -49,7 +49,7 @@ public class EventSeriesServiceImp implements EventsSeriesService {
         this.eventsSeriesRepository.save(eventsSeries);
     }
 
-    @Override
+@Override
 @Transactional
 public void deleteEventSeries(int eventSeriesId) throws AppException {
     try {
@@ -99,32 +99,18 @@ public void deleteEventSeries(int eventSeriesId) throws AppException {
     }
 
     @Override
-    public EventsSeries createNewEventsSeries(User user, EventData periodStart) throws AppException {
-        if(periodStart.isPredicted()){
-            throw new AppException(EventsSeriesError.EVENTS_SERIES_NO_NEW_ACTUAL_EVENTS);
-        }
+    public EventsSeries createNewEventsSeries(User user) throws Exception{
+        double cycleLength;
 
-        // If user exists, delete old predictions from both Calendar and DB
+        // If user had a prediction, delete old predictions from both Calendar and DB
         if(this.eventsSeriesRepository.existsByUserId(user.getId())){
             EventsSeries existingSeries = this.eventsSeriesRepository.findByUserId(user.getId());
+            cycleLength = existingSeries.getCalculatedCycleLength();
             deleteAllPredictions(existingSeries);
+        } else { //anew user
+            cycleLength = this.eventServiceImp.calculateCycleLength(user.getId());
         }
 
-        // Create new eventSeries
-        EventsSeries eventsSeries = new EventsSeries.Builder()
-                .setUser(user)
-                .setCalculatedCycleLength(this.calculateCycleLength(user))
-                .setPredictionDate(periodStart.getEventDate())
-                .build();
-
-        // Add new predictions and sync with calendar
-        eventsSeries = this.predictionPeriodOvulation(eventsSeries);
-
-        return eventsSeries;
-    }
-
-    public EventsSeries createFirstNewEventsSeries(User user) throws AppException {
-        double cycleLength = this.eventServiceImp.calculateCycleLength(user.getId());
         EventData lastPeriod = this.eventServiceImp.getLastPeriod(user.getId());
         
         // Create new eventSeries
@@ -133,6 +119,7 @@ public void deleteEventSeries(int eventSeriesId) throws AppException {
                 .setCalculatedCycleLength(cycleLength)
                 .setPredictionDate(lastPeriod.getEventDate())
                 .build();
+            eventsSeries = this.addEventSeries(eventsSeries);
 
         // Add new predictions and sync with calendar
         eventsSeries = this.predictionPeriodOvulation(eventsSeries);
@@ -140,19 +127,19 @@ public void deleteEventSeries(int eventSeriesId) throws AppException {
         return eventsSeries;
     }
 
-    public EventsSeries predictionPeriodOvulation(EventsSeries eventsSeries) throws AppException {
+    @Override
+    public EventsSeries predictionPeriodOvulation(EventsSeries eventsSeries) throws Exception {
         EventData lastPeriod = this.eventServiceImp.getLastPeriod(eventsSeries.getUser().getId());
         LocalDate ovulation = lastPeriod.getEventDate().plusDays((int) eventsSeries.getCalculatedCycleLength()/2);
         LocalDate ovulationStart = ovulation.minusDays(4);
         LocalDate ovulationEnd = ovulation.plusDays(2);
-        LocalDate nextPeriod = lastPeriod.getEventDate().plusDays((int) eventsSeries.getCalculatedCycleLength());
 
         List<EventData> prediction = new ArrayList<>();
 
-        // Add next 12 periods prediction
-        for(long i = 0; i < 12; i++ ){
+        // Add next 6 periods prediction
+        for(long i = 0; i < 2; i++ ){
             EventData periodsPrediction = new EventData.EventDataBuilder()
-                    .eventDate(nextPeriod.plusDays((i+1) * (int) eventsSeries.getCalculatedCycleLength()))
+                    .eventDate(lastPeriod.getEventDate().plusDays((i+1) * (int) eventsSeries.getCalculatedCycleLength()))
                     .title("🌋Period-Prediction🌋")
                     .user(eventsSeries.getUser())
                     .isPeriodFirstDay(true)

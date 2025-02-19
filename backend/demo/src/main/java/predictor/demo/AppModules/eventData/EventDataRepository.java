@@ -39,13 +39,18 @@ EventData findMostRecentPeriodFirstDayEvent(@Param("userId") int userId);
         "ORDER BY e.eventDate DESC", nativeQuery = true)
     List<EventData> findTop4RecentPeriodFirstDayEvents(@Param("userId") int userId);
 
-    @Query(value = "SELECT AVG(FUNCTION('DATEDIFF', e1.eventDate, e2.eventDate)) " +
-        "FROM EventData e1 " +
-        "JOIN EventData e2 ON e2.eventDate < e1.eventDate " +
-        "WHERE e1.user.id = :userId AND e2.user.id = :userId " +
-        "AND e1.isPeriodFirstDay = true AND e2.isPeriodFirstDay = true " +
-        "AND e1.isPredicted = false AND e2.isPredicted = false " +
-        "ORDER BY e1.eventDate DESC", nativeQuery = true)
-    Double calculateAverageCycleLength(@Param("userId") int userId);
+    @Query(value = "WITH period_events AS ( " +
+                "    SELECT event_date, " +
+                "           LAG(event_date) OVER (ORDER BY event_date DESC) AS prev_event_date " +
+                    "    FROM event_data " +
+                    "    WHERE user_id = :userId " +
+                    "    AND is_period_first_day = true " +
+                    "    AND is_predicted = false " +
+                    ") " +
+                "SELECT AVG(DATEDIFF(prev_event_date, event_date)) " +
+                "FROM period_events " +
+                "WHERE prev_event_date IS NOT NULL", 
+                nativeQuery = true)
+Double calculateAverageCycleLength(@Param("userId") int userId);
 
 }
