@@ -2114,3 +2114,354 @@ Caused by: org.hibernate.NonUniqueResultException: Query did not return a unique
 2025-02-19 12:58:51 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-19 12:58:55 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2025-02-19 12:58:57 [main] INFO  predictor.demo.DemoApplication - Started DemoApplication in 19.989 seconds (process running for 21.077)
+2025-02-19 18:55:55 [main] INFO  predictor.demo.DemoApplication - Starting DemoApplication using Java 17.0.13 with PID 13696 (C:\Fullstack_apps\period-and-ovulation-predictor\backend\demo\target\classes started by Danil in C:\Fullstack_apps\period-and-ovulation-predictor)
+2025-02-19 18:55:55 [main] INFO  predictor.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-19 18:55:55 [main] INFO  predictor.demo.DemoApplication - Starting DemoApplication using Java 17.0.13 with PID 13288 (C:\Fullstack_apps\period-and-ovulation-predictor\backend\demo\target\classes started by Danil in C:\Fullstack_apps\period-and-ovulation-predictor)
+2025-02-19 18:55:55 [main] INFO  predictor.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-19 18:56:01 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-19 18:56:01 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-19 18:56:01 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-19 18:56:01 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-19 18:56:01 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-19 18:56:01 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-19 18:56:02 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-19 18:56:02 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-19 18:56:02 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-19 18:56:02 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-19 18:56:02 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-19 18:56:03 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-19 18:56:04 [main] WARN  com.zaxxer.hikari.HikariConfig - predictor-period-ovulation - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2025-02-19 18:56:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Starting...
+2025-02-19 18:56:04 [main] WARN  com.zaxxer.hikari.HikariConfig - predictor-period-ovulation - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2025-02-19 18:56:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Starting...
+2025-02-19 18:56:05 [main] INFO  com.zaxxer.hikari.pool.HikariPool - predictor-period-ovulation - Added connection com.mysql.cj.jdbc.ConnectionImpl@5fbae40
+2025-02-19 18:56:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Start completed.
+2025-02-19 18:56:05 [main] INFO  com.zaxxer.hikari.pool.HikariPool - predictor-period-ovulation - Added connection com.mysql.cj.jdbc.ConnectionImpl@5a1a20ae
+2025-02-19 18:56:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Start completed.
+2025-02-19 18:56:05 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-19 18:56:05 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-19 18:56:05 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-19 18:56:05 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-19 18:56:05 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (predictor-period-ovulation)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-19 18:56:05 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (predictor-period-ovulation)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-19 18:56:08 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-19 18:56:09 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-19 18:56:12 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-19 18:56:15 [main] INFO  predictor.demo.DemoApplication - Started DemoApplication in 20.798 seconds (process running for 21.973)
+2025-02-19 18:56:50 [http-nio-8080-exec-1] INFO  o.a.tomcat.util.http.parser.Cookie - A cookie header was received [g_state={"i_l":0};] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2025-02-19 18:56:50 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-19 18:56:50 [http-nio-8080-exec-1] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [162] milliseconds.
+2025-02-19 18:56:54 [http-nio-8080-exec-2] INFO  predictor.demo.AppConfiguration - Processing OAuth2 login for: naama.antoniouk@gmail.com
+2025-02-19 18:56:55 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-19 18:56:55 [http-nio-8080-exec-2] INFO  predictor.demo.AppConfiguration - Found existing user: naama.antoniouk@gmail.com
+2025-02-19 18:56:55 [http-nio-8080-exec-4] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-19 18:56:55 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-19 18:56:55 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user_id from event_data ed1_0 where ed1_0.user_id=? and ed1_0.is_predicted=0
+2025-02-19 18:56:55 [http-nio-8080-exec-3] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-19 18:56:55 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-19 18:56:56 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user_id from event_data ed1_0 where ed1_0.user_id=? and ed1_0.is_predicted=0
+2025-02-19 18:57:01 [http-nio-8080-exec-5] INFO  p.d.A.calendar.CalendarController - Generating new predictions
+2025-02-19 18:57:01 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-19 18:57:01 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - SELECT * FROM event_data WHERE id = (SELECT MAX(id) FROM event_data WHERE user_id = ? AND is_period_first_day = true AND is_predicted = false)
+2025-02-19 18:57:01 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select es1_0.id from events_series es1_0 left join user u1_0 on u1_0.id=es1_0.user_id where u1_0.id=? limit ?
+2025-02-19 18:57:01 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select es1_0.id,es1_0.calculated_cycle_length,es1_0.prediction_date,es1_0.user_id from events_series es1_0 left join user u1_0 on u1_0.id=es1_0.user_id where u1_0.id=?
+2025-02-19 18:57:01 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select pe1_0.events_series,pe1_0.id,pe1_0.calendar_event_id,pe1_0.created_date_time,pe1_0.event_date,pe1_0.is_period_first_day,pe1_0.is_predicted,pe1_0.is_sync,pe1_0.modified_date_time,pe1_0.title,pe1_0.user_id,u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from event_data pe1_0 left join user u1_0 on u1_0.id=pe1_0.user_id where pe1_0.events_series=?
+2025-02-19 18:57:02 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: ckihnib7hll81vsjdun2jjlfsg
+2025-02-19 18:57:03 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: k3cnvqoipkvvqla866nhe003sc
+2025-02-19 18:57:03 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: uj56m7g8vo71hm73r823fchb44
+2025-02-19 18:57:04 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: 5jini542382ldhvnh8u4mmho50
+2025-02-19 18:57:04 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: 1bv6g0uvj7cbg2vcbpd5tfu9t0
+2025-02-19 18:57:04 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: a727s5gt3gl3tfqdie0brkm08g
+2025-02-19 18:57:04 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: 1j7cj2mc5euf6uc6upbu87m6v8
+2025-02-19 18:57:05 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: u015lgul8cdn853veth5i00q54
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - delete from events_series where id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] INFO  p.d.A.e.EventSeriesServiceImp - Successfully deleted event series: 1
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - SELECT * FROM event_data WHERE id = (SELECT MAX(id) FROM event_data WHERE user_id = ? AND is_period_first_day = true AND is_predicted = false)
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select count(ed1_0.id) from event_data ed1_0 where ed1_0.user_id=? and ed1_0.is_predicted=0
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into events_series (calculated_cycle_length,prediction_date,user_id) values (?,?,?)
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - SELECT * FROM event_data WHERE id = (SELECT MAX(id) FROM event_data WHERE user_id = ? AND is_period_first_day = true AND is_predicted = false)
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 18:57:05 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 18:57:06 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 18:57:06 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 18:57:06 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 18:57:06 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 18:57:07 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 18:57:07 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 18:57:07 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 18:57:07 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 18:57:08 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 18:57:09 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 18:57:09 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 18:57:09 [http-nio-8080-exec-5] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 18:57:09 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 18:57:09 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 18:57:09 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 18:57:09 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 18:57:09 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 18:57:09 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 18:57:09 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 18:57:09 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 18:57:09 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 18:57:09 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 18:57:09 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 18:57:09 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:03:26 [http-nio-8080-exec-10] INFO  p.d.A.calendar.CalendarController - Adding new period event
+2025-02-19 19:03:26 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-19 19:03:26 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:03:26 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:03:26 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:03:36 [http-nio-8080-exec-1] INFO  p.d.A.calendar.CalendarController - Adding new period event
+2025-02-19 19:03:36 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-19 19:03:36 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:03:36 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:03:36 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:03:37 [http-nio-8080-exec-2] INFO  p.d.A.calendar.CalendarController - Generating new predictions
+2025-02-19 19:03:37 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-19 19:03:37 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - SELECT * FROM event_data WHERE id = (SELECT MAX(id) FROM event_data WHERE user_id = ? AND is_period_first_day = true AND is_predicted = false)
+2025-02-19 19:03:37 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select es1_0.id from events_series es1_0 left join user u1_0 on u1_0.id=es1_0.user_id where u1_0.id=? limit ?
+2025-02-19 19:03:37 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select es1_0.id,es1_0.calculated_cycle_length,es1_0.prediction_date,es1_0.user_id from events_series es1_0 left join user u1_0 on u1_0.id=es1_0.user_id where u1_0.id=?
+2025-02-19 19:03:37 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select pe1_0.events_series,pe1_0.id,pe1_0.calendar_event_id,pe1_0.created_date_time,pe1_0.event_date,pe1_0.is_period_first_day,pe1_0.is_predicted,pe1_0.is_sync,pe1_0.modified_date_time,pe1_0.title,pe1_0.user_id,u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from event_data pe1_0 left join user u1_0 on u1_0.id=pe1_0.user_id where pe1_0.events_series=?
+2025-02-19 19:03:38 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: iae47d27fovqsgs99dddfl9tp8
+2025-02-19 19:03:38 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: fdfgl3bllcv4ckbts09tqutdhk
+2025-02-19 19:03:38 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: n3rhqcf6n0ljv2ho1gi5uq7kno
+2025-02-19 19:03:38 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: lul00pln0f8bbkuama5008ghp8
+2025-02-19 19:03:39 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: 9v0mj7ku9pin93lao2dmc3k2t8
+2025-02-19 19:03:39 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: e8nm6rp3elcb2ts0qflo3kudm4
+2025-02-19 19:03:39 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: i3jnumt9sgg0a21kalmdaf4avo
+2025-02-19 19:03:39 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: v3hiof34mcc526vi3qano5h0ko
+2025-02-19 19:03:40 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: 7f5trfcbggenqt5opo15jtjbio
+2025-02-19 19:03:40 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: d63g708eai1s18m8n05lceealg
+2025-02-19 19:03:40 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: uof7tta13a1ag7k4u1ptltf930
+2025-02-19 19:03:40 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: m2iuastv8ju2r7fc9u04dc65l4
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - delete from events_series where id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] INFO  p.d.A.e.EventSeriesServiceImp - Successfully deleted event series: 2
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - SELECT * FROM event_data WHERE id = (SELECT MAX(id) FROM event_data WHERE user_id = ? AND is_period_first_day = true AND is_predicted = false)
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(ed1_0.id) from event_data ed1_0 where ed1_0.user_id=? and ed1_0.is_predicted=0
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into events_series (calculated_cycle_length,prediction_date,user_id) values (?,?,?)
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - SELECT * FROM event_data WHERE id = (SELECT MAX(id) FROM event_data WHERE user_id = ? AND is_period_first_day = true AND is_predicted = false)
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:03:40 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:03:41 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:03:41 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:03:41 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:03:41 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:03:41 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:03:41 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:03:41 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:03:41 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:03:41 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 19:03:41 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 19:03:42 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 19:03:42 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 19:03:42 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 19:03:43 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 19:03:43 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 19:03:43 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 19:03:44 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 19:03:44 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 19:03:44 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 19:03:44 [http-nio-8080-exec-2] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 19:03:44 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:03:44 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:03:44 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:03:44 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:03:44 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:03:45 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:03:45 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:03:45 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:03:45 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:03:45 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:03:45 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:03:45 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:03:46 [http-nio-8080-exec-4] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-19 19:03:46 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-19 19:03:46 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user_id from event_data ed1_0 where ed1_0.user_id=? and ed1_0.is_predicted=0
+2025-02-19 19:03:47 [http-nio-8080-exec-3] INFO  p.d.A.calendar.CalendarController - Fetching period events for user
+2025-02-19 19:03:47 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-19 19:03:47 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select ed1_0.id,ed1_0.calendar_event_id,ed1_0.created_date_time,ed1_0.event_date,ed1_0.events_series,ed1_0.is_period_first_day,ed1_0.is_predicted,ed1_0.is_sync,ed1_0.modified_date_time,ed1_0.title,ed1_0.user_id from event_data ed1_0 where ed1_0.user_id=? and ed1_0.is_predicted=0
+2025-02-19 19:09:20 [http-nio-8080-exec-8] INFO  p.d.A.calendar.CalendarController - Adding new period event
+2025-02-19 19:09:20 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-19 19:09:20 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:09:20 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:09:20 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:09:21 [http-nio-8080-exec-10] INFO  p.d.A.calendar.CalendarController - Generating new predictions
+2025-02-19 19:09:21 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from user u1_0 where u1_0.google_sub=?
+2025-02-19 19:09:21 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - SELECT * FROM event_data WHERE id = (SELECT MAX(id) FROM event_data WHERE user_id = ? AND is_period_first_day = true AND is_predicted = false)
+2025-02-19 19:09:21 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select es1_0.id from events_series es1_0 left join user u1_0 on u1_0.id=es1_0.user_id where u1_0.id=? limit ?
+2025-02-19 19:09:21 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select es1_0.id,es1_0.calculated_cycle_length,es1_0.prediction_date,es1_0.user_id from events_series es1_0 left join user u1_0 on u1_0.id=es1_0.user_id where u1_0.id=?
+2025-02-19 19:09:21 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select pe1_0.events_series,pe1_0.id,pe1_0.calendar_event_id,pe1_0.created_date_time,pe1_0.event_date,pe1_0.is_period_first_day,pe1_0.is_predicted,pe1_0.is_sync,pe1_0.modified_date_time,pe1_0.title,pe1_0.user_id,u1_0.id,u1_0.created_date_time,u1_0.email,u1_0.google_sub,u1_0.is_active,u1_0.modified_date_time,u1_0.name,u1_0.picture,u1_0.refresh_token from event_data pe1_0 left join user u1_0 on u1_0.id=pe1_0.user_id where pe1_0.events_series=?
+2025-02-19 19:09:22 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: 8b7inc08mj4ih5ehdpults0dg0
+2025-02-19 19:09:22 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: ac1bp9423j0rh4rlmpuaglhc1o
+2025-02-19 19:09:22 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: difitjrgc9k85t27ob48bi43ac
+2025-02-19 19:09:22 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: tq2hei9hr06gj990dbe7jtj3jk
+2025-02-19 19:09:23 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: 6l0viofrr9s1omreq899v2r7j4
+2025-02-19 19:09:23 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: fkr55j6fca86gph8ga2i22g18o
+2025-02-19 19:09:23 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: a9tupcc3ot8m333r7ao2m90cro
+2025-02-19 19:09:23 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: t0n1taluhuhcl99qeddfi35p2o
+2025-02-19 19:09:24 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: 09489mh9pv58rjmpjm5mjbto30
+2025-02-19 19:09:24 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: an6irtutp3f1kofdphe7codmfg
+2025-02-19 19:09:24 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: bj7gse0a3j7upj34a8lu1k2n60
+2025-02-19 19:09:25 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully deleted event from Google Calendar: cof2ipjrlapks6l4ulbcdckgas
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - delete from event_data where id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - delete from events_series where id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] INFO  p.d.A.e.EventSeriesServiceImp - Successfully deleted event series: 3
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - SELECT * FROM event_data WHERE id = (SELECT MAX(id) FROM event_data WHERE user_id = ? AND is_period_first_day = true AND is_predicted = false)
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select count(ed1_0.id) from event_data ed1_0 where ed1_0.user_id=? and ed1_0.is_predicted=0
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - insert into events_series (calculated_cycle_length,prediction_date,user_id) values (?,?,?)
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - SELECT * FROM event_data WHERE id = (SELECT MAX(id) FROM event_data WHERE user_id = ? AND is_period_first_day = true AND is_predicted = false)
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select count(*) from event_data ed1_0 where ed1_0.id=?
+2025-02-19 19:09:25 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - insert into event_data (calendar_event_id,created_date_time,event_date,events_series,is_period_first_day,is_predicted,is_sync,modified_date_time,title,user_id) values (?,?,?,?,?,?,?,?,?,?)
+2025-02-19 19:09:25 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 19:09:25 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 19:09:26 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 19:09:26 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 19:09:26 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 19:09:27 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ?Period-Prediction? to Google Calendar
+2025-02-19 19:09:27 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 19:09:27 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 19:09:28 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 19:09:28 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 19:09:28 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 19:09:28 [http-nio-8080-exec-10] INFO  p.d.A.calendar.GoogleCalendarService - Successfully synced event: ??Ovulation-Prediction?? to Google Calendar
+2025-02-19 19:09:28 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:09:28 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:09:28 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:09:28 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:09:28 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:09:28 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:09:28 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:09:28 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:09:28 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:09:28 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:09:28 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:09:28 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - update event_data set calendar_event_id=?,event_date=?,events_series=?,is_period_first_day=?,is_predicted=?,is_sync=?,modified_date_time=?,title=? where id=?
+2025-02-19 19:22:15 [main] INFO  predictor.demo.DemoApplication - Starting DemoApplication using Java 17.0.13 with PID 17772 (C:\Fullstack_apps\period-and-ovulation-predictor\backend\demo\target\classes started by Danil in C:\Fullstack_apps\period-and-ovulation-predictor)
+2025-02-19 19:22:15 [main] INFO  predictor.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2025-02-19 19:22:21 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-02-19 19:22:21 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-19 19:22:21 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-02-19 19:22:22 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-19 19:22:22 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-19 19:22:22 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-02-19 19:22:23 [main] WARN  com.zaxxer.hikari.HikariConfig - predictor-period-ovulation - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2025-02-19 19:22:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Starting...
+2025-02-19 19:22:24 [main] INFO  com.zaxxer.hikari.pool.HikariPool - predictor-period-ovulation - Added connection com.mysql.cj.jdbc.ConnectionImpl@1b8d20e6
+2025-02-19 19:22:24 [main] INFO  com.zaxxer.hikari.HikariDataSource - predictor-period-ovulation - Start completed.
+2025-02-19 19:22:24 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-19 19:22:24 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-02-19 19:22:24 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (predictor-period-ovulation)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-19 19:22:27 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-19 19:22:31 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-19 19:22:32 [main] INFO  predictor.demo.DemoApplication - Started DemoApplication in 18.616 seconds (process running for 19.772)

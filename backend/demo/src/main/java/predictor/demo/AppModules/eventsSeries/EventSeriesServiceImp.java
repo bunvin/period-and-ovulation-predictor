@@ -1,6 +1,5 @@
 package predictor.demo.AppModules.eventsSeries;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -100,17 +99,14 @@ public void deleteEventSeries(int eventSeriesId) throws AppException {
 
     @Override
     public EventsSeries createNewEventsSeries(User user) throws Exception{
-        double cycleLength;
-
+        
         // If user had a prediction, delete old predictions from both Calendar and DB
         if(this.eventsSeriesRepository.existsByUserId(user.getId())){
             EventsSeries existingSeries = this.eventsSeriesRepository.findByUserId(user.getId());
-            cycleLength = existingSeries.getCalculatedCycleLength();
             deleteEventSeries(existingSeries.getId());
-        } else { //anew user
-            cycleLength = this.eventServiceImp.calculateCycleLength(user.getId());
         }
 
+        double cycleLength = this.eventServiceImp.calculateCycleLength(user.getId());
         EventData lastPeriod = this.eventServiceImp.getLastPeriod(user.getId());
         
         // Create new eventSeries
@@ -137,7 +133,7 @@ public void deleteEventSeries(int eventSeriesId) throws AppException {
         List<EventData> prediction = new ArrayList<>();
 
         // Add next 6 periods prediction
-        for(long i = 0; i < 2; i++ ){
+        for(long i = 0; i < 6; i++ ){
             EventData periodsPrediction = new EventData.EventDataBuilder()
                     .eventDate(lastPeriod.getEventDate().plusDays((i+1) * (int) eventsSeries.getCalculatedCycleLength()))
                     .title("🌋Period-Prediction🌋")
