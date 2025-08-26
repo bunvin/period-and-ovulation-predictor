@@ -12,9 +12,9 @@ export const userService = {
 
 export const calendarService = {
   getStats: () => api.get<CalendarStats>('/stats'),
-  addPeriod: (date: string) => api.post<EventData>('/api/calendar/periods', { date }),
-  getPredictions: () => api.get<EventData[]>('/api/calendar/predictions'),
+  addPeriod: (date: string) => api.post<EventData>('/periods', { date }),
+  getPredictions: () => api.get<EventData[]>('/predictions'),
   generatePredictions: () => 
     api.post('/predictions/generate'),
-  deleteEvent: (eventId: number) => api.delete(`/api/calendar/events/${eventId}`)
+  deleteEvent: (eventId: number) => api.delete(`/events/${eventId}`)
 };

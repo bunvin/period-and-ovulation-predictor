@@ -16,7 +16,10 @@ const EventList: React.FC = () => {
   const fetchEvents = async (): Promise<void> => {
     try {
       const response = await userService.getPeriods();
-      setEvents(response.data);
+      if(response.data.length > 4){
+        setEvents(response.data.slice(-4));
+      } else {
+        setEvents(response.data)};
     } catch (err) {
       if (axios.isAxiosError(err)) {
         const errorMessage = err.response?.data?.message || 
