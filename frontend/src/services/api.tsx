@@ -2,7 +2,7 @@ import axios from 'axios';
 import { User, CalendarStats, EventData } from '../types';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api/calendar',
+  baseURL: '/api/calendar',
   withCredentials: true,
 });
 
