@@ -12,11 +12,15 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
+import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -46,7 +50,8 @@ public class AppConfiguration {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http,
+            OAuth2AuthorizedClientService authorizedClientService) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
@@ -54,13 +59,36 @@ public class AppConfiguration {
                 .requestMatchers("/api/**").authenticated()
                 .anyRequest().authenticated())
             .oauth2Login(oauth2 -> oauth2
-                .defaultSuccessUrl("http://localhost:3000", true)  // Redirect to React app
                 .failureUrl("/login?error=true")
                 .userInfoEndpoint(userInfo -> userInfo
-                    .userService(oauth2UserService())))
-            .cors(Customizer.withDefaults())  // Enable CORS
-            .csrf(csrf -> csrf.disable());  // Disable CSRF for API calls
+                    .userService(oauth2UserService()))
+                .successHandler(refreshTokenSavingSuccessHandler(authorizedClientService)))
+            .cors(Customizer.withDefaults())
+            .csrf(csrf -> csrf.disable());
         return http.build();
+    }
+
+    @Bean
+    public AuthenticationSuccessHandler refreshTokenSavingSuccessHandler(
+            OAuth2AuthorizedClientService authorizedClientService) {
+        return (request, response, authentication) -> {
+            OAuth2AuthenticationToken token = (OAuth2AuthenticationToken) authentication;
+            OAuth2AuthorizedClient client = authorizedClientService.loadAuthorizedClient(
+                token.getAuthorizedClientRegistrationId(), token.getName());
+
+            if (client != null && client.getRefreshToken() != null) {
+                String googleSubject = token.getPrincipal().getAttribute("sub");
+                try {
+                    User user = userServiceImp.getUserByGoogleSubject(googleSubject);
+                    userServiceImp.updateRefreshToken(user.getId(), client.getRefreshToken().getTokenValue());
+                    logger.info("Saved refresh token for user: {}", user.getEmail());
+                } catch (AppException e) {
+                    logger.error("Could not save refresh token for subject {}: {}", googleSubject, e.getMessage());
+                }
+            }
+
+            response.sendRedirect("http://localhost:3000");
+        };
     }
 
 
