@@ -18,16 +18,14 @@ import predictor.demo.AppModules.eventData.EventDataServiceImp;
 @Service
 @Slf4j
 public class GoogleCalendarService {
-    
-    private final Calendar googleCalendar;
+
     private final EventDataServiceImp eventDataService;
 
-    public GoogleCalendarService(Calendar googleCalendar, EventDataServiceImp eventDataService) {
-        this.googleCalendar = googleCalendar;
+    public GoogleCalendarService(EventDataServiceImp eventDataService) {
         this.eventDataService = eventDataService;
     }
 
-    public Event addEventToGoogleCalendar(EventData eventData) throws Exception {
+    public Event addEventToGoogleCalendar(EventData eventData, Calendar calendar) throws Exception {
         try {
             Event googleEvent = new Event()
                 .setSummary(eventData.getTitle())
@@ -39,24 +37,22 @@ public class GoogleCalendarService {
                     .setDate(new DateTime(eventData.getEventDate().plusDays(1).toString()))
                     .setTimeZone("UTC"));
 
-            Event createdEvent = googleCalendar.events().insert("primary", googleEvent).execute();
-            
-            // Update sync status in local database
+            Event createdEvent = calendar.events().insert("primary", googleEvent).execute();
+
             eventData.setSync(true);
             eventDataService.updateEvent(eventData, eventData.getId());
-            
-            return createdEvent;
 
+            return createdEvent;
         } catch (IOException e) {
             log.error("Failed to create Google Calendar event", e);
             throw new Exception("Failed to sync with Google Calendar", e);
         }
     }
 
-    public void deleteEventFromGoogleCalendar(String eventId) throws Exception {
+    public void deleteEventFromGoogleCalendar(String eventId, Calendar calendar) throws Exception {
         try {
             if (eventId != null) {
-                googleCalendar.events().delete("primary", eventId).execute();
+                calendar.events().delete("primary", eventId).execute();
                 log.info("Deleted Google Calendar event: {}", eventId);
             }
         } catch (IOException e) {
@@ -65,18 +61,14 @@ public class GoogleCalendarService {
         }
     }
 
-    public void deleteEventsFromGoogleCalendar(List<String> eventIds) throws Exception {
-        if (eventIds == null || eventIds.isEmpty()) {
-            log.info("No Google Calendar events to delete");
-            return;
-        }
+    public void deleteEventsFromGoogleCalendar(List<String> eventIds, Calendar calendar) throws Exception {
+        if (eventIds == null || eventIds.isEmpty()) return;
 
         List<Exception> errors = new ArrayList<>();
-        
         for (String eventId : eventIds) {
             try {
                 if (eventId != null) {
-                    googleCalendar.events().delete("primary", eventId).execute();
+                    calendar.events().delete("primary", eventId).execute();
                     log.info("Deleted Google Calendar event: {}", eventId);
                 }
             } catch (IOException e) {
@@ -84,21 +76,14 @@ public class GoogleCalendarService {
                 errors.add(new Exception("Failed to delete event: " + eventId, e));
             }
         }
-
         if (!errors.isEmpty()) {
-            throw new Exception("Failed to delete some Google Calendar events: " + 
-                errors.size() + " errors occurred");
+            throw new Exception("Failed to delete some Google Calendar events: " + errors.size() + " errors occurred");
         }
     }
 
-    public void batchSyncEvents(List<EventData> events) {
-        if (events == null || events.isEmpty()) {
-            log.info("No events to sync with Google Calendar");
-            return;
-        }
+    public void batchSyncEvents(List<EventData> events, Calendar calendar) {
+        if (events == null || events.isEmpty()) return;
 
-        List<Exception> errors = new ArrayList<>();
-        
         for (EventData event : events) {
             try {
                 Event googleEvent = new Event()
@@ -111,46 +96,26 @@ public class GoogleCalendarService {
                         .setDate(new DateTime(event.getEventDate().plusDays(1).toString()))
                         .setTimeZone("UTC"));
 
-                Event createdEvent = googleCalendar.events().insert("primary", googleEvent).execute();
-                
-                // Update the event with the Google Calendar ID
+                Event createdEvent = calendar.events().insert("primary", googleEvent).execute();
                 event.setCalendarEventId(createdEvent.getId());
                 event.setSync(true);
-                
-                log.info("Successfully synced event: {} to Google Calendar", event.getTitle());
+                log.info("Synced event {} to Google Calendar", event.getTitle());
             } catch (IOException e) {
                 log.error("Failed to sync event to Google Calendar: {}", event.getTitle(), e);
-                errors.add(e);
             }
-        }
-
-        if (!errors.isEmpty()) {
-            log.error("Failed to sync {} events with Google Calendar", errors.size());
-            // You might want to handle these errors appropriately
         }
     }
 
-    public void deleteCalendarEvents(List<String> eventIds) {
-        if (eventIds == null || eventIds.isEmpty()) {
-            log.info("No calendar events to delete");
-            return;
-        }
+    public void deleteCalendarEvents(List<String> eventIds, Calendar calendar) {
+        if (eventIds == null || eventIds.isEmpty()) return;
 
-        List<Exception> errors = new ArrayList<>();
-        
         for (String eventId : eventIds) {
             try {
-                googleCalendar.events().delete("primary", eventId).execute();
-                log.info("Successfully deleted event from Google Calendar: {}", eventId);
+                calendar.events().delete("primary", eventId).execute();
+                log.info("Deleted calendar event: {}", eventId);
             } catch (IOException e) {
-                log.error("Failed to delete event from Google Calendar: {}", eventId, e);
-                errors.add(e);
+                log.error("Failed to delete calendar event {}: {}", eventId, e.getMessage());
             }
         }
-
-        if (!errors.isEmpty()) {
-            log.error("Failed to delete {} events from Google Calendar", errors.size());
-        }
     }
-
 }

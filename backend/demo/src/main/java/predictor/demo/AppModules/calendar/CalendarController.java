@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.api.services.calendar.Calendar;
 import lombok.extern.slf4j.Slf4j;
 import predictor.demo.AppModules.eventData.EventData;
 import predictor.demo.AppModules.eventData.EventDataServiceImp;
@@ -37,17 +38,20 @@ public class CalendarController {
     private final EventDataServiceImp eventDataService;
     private final GoogleCalendarService googleCalendarService;
     private final EventSeriesServiceImp eventsSeriesService;
+    private final Calendar googleCalendar;
 
     @Autowired
     public CalendarController(
             UserServiceImp userService,
             EventDataServiceImp eventDataService,
             GoogleCalendarService googleCalendarService,
-            EventSeriesServiceImp eventsSeriesService) {
+            EventSeriesServiceImp eventsSeriesService,
+            Calendar googleCalendar) {
         this.userService = userService;
         this.eventDataService = eventDataService;
         this.googleCalendarService = googleCalendarService;
         this.eventsSeriesService = eventsSeriesService;
+        this.googleCalendar = googleCalendar;
     }
 
     /**
@@ -92,7 +96,7 @@ public class CalendarController {
             EventData savedEvent = eventDataService.addEvent(newEvent);
 
             // Sync with Google Calendar
-            googleCalendarService.addEventToGoogleCalendar(savedEvent);
+            googleCalendarService.addEventToGoogleCalendar(savedEvent, googleCalendar);
 
             return ResponseEntity.ok(savedEvent);
         } catch (Exception e) {
@@ -133,7 +137,7 @@ public class CalendarController {
                     .body("No recent period found to generate predictions");
             }
 
-            EventsSeries newPrediction = this.eventsSeriesService.createNewEventsSeries(user);
+            EventsSeries newPrediction = this.eventsSeriesService.createNewEventsSeries(user, googleCalendar);
 
             return ResponseEntity.ok("Predictions generated successfully");
 
@@ -163,7 +167,7 @@ public class CalendarController {
 
             // If event was synced with Google Calendar, delete it there first
             if (event.isSync()) {
-                googleCalendarService.deleteEventFromGoogleCalendar(event.getCalendarEventId());
+                googleCalendarService.deleteEventFromGoogleCalendar(event.getCalendarEventId(), googleCalendar);
             }
 
             // Delete from local database
@@ -202,7 +206,7 @@ public class CalendarController {
 
     @PostMapping("/series/{seriesId}/delete")
     public ResponseEntity<?> deleteEventSeries(@PathVariable int seriesId) throws AppException {
-        eventsSeriesService.deleteEventSeries(seriesId);
+        eventsSeriesService.deleteEventSeries(seriesId, googleCalendar);
         return ResponseEntity.ok().build();
     }
 }

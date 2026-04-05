@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Repository
@@ -38,6 +39,9 @@ EventData findMostRecentPeriodFirstDayEvent(@Param("userId") int userId);
         "WHERE e.user.id = :userId AND e.isPredicted = false AND e.isPeriodFirstDay = true " +
         "ORDER BY e.eventDate DESC", nativeQuery = true)
     List<EventData> findTop4RecentPeriodFirstDayEvents(@Param("userId") int userId);
+
+    @Query("SELECT e FROM EventData e WHERE e.user.id = :userId AND e.isPredicted = true AND e.isPeriodFirstDay = true AND e.eventDate = :date")
+    EventData findPredictedPeriodFirstDayForDate(@Param("userId") int userId, @Param("date") LocalDate date);
 
     @Query(value = "WITH period_events AS ( " +
                 "    SELECT event_date, " +
