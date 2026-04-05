@@ -43,6 +43,12 @@ EventData findMostRecentPeriodFirstDayEvent(@Param("userId") int userId);
     @Query("SELECT e FROM EventData e WHERE e.user.id = :userId AND e.isPredicted = true AND e.isPeriodFirstDay = true AND e.eventDate = :date")
     EventData findPredictedPeriodFirstDayForDate(@Param("userId") int userId, @Param("date") LocalDate date);
 
+    @Query("SELECT e FROM EventData e WHERE e.user.id = :userId AND e.isPredicted = true AND e.isPeriodFirstDay = true AND e.eventDate BETWEEN :from AND :to ORDER BY e.eventDate ASC")
+    List<EventData> findPredictedPeriodFirstDaysBetween(@Param("userId") int userId, @Param("from") LocalDate from, @Param("to") LocalDate to);
+
+    @Query("SELECT MIN(e.eventDate) FROM EventData e WHERE e.user.id = :userId AND e.isPredicted = true AND e.isPeriodFirstDay = false")
+    LocalDate findEarliestOvulationPredictionDate(@Param("userId") int userId);
+
     @Query(value = "WITH period_events AS ( " +
                 "    SELECT event_date, " +
                 "           LAG(event_date) OVER (ORDER BY event_date DESC) AS prev_event_date " +
