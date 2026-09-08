@@ -33,8 +33,8 @@ public class ScheduledPredictionService {
     @Autowired private EventSeriesServiceImp eventSeriesServiceImp;
     @Autowired private UserCalendarClientFactory calendarClientFactory;
 
-    // Runs every Monday at 8am
-    @Scheduled(cron = "0 0 8 * * MON")
+    // Runs every Monday and Thursday at 18:00
+    @Scheduled(cron = "0 0 18 * * MON,THU")
     public void checkAndConfirmPeriods() {
         LocalDate today = LocalDate.now();
         log.info("Period confirmation scheduler running for week ending {}", today);
