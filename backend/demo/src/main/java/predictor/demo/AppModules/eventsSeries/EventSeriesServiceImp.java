@@ -87,7 +87,7 @@ public class EventSeriesServiceImp implements EventsSeriesService {
     public EventsSeries createNewEventsSeries(User user, Calendar calendar) throws Exception {
         if (this.eventsSeriesRepository.existsByUserId(user.getId())) {
             EventsSeries existing = this.eventsSeriesRepository.findByUserId(user.getId());
-            deleteEventSeries(existing.getId(), calendar);
+            return updateExistingEventsSeries(existing, calendar);
         }
 
         double cycleLength = this.eventServiceImp.calculateCycleLength(user.getId());
@@ -106,39 +106,20 @@ public class EventSeriesServiceImp implements EventsSeriesService {
     @Override
     public EventsSeries predictionPeriodOvulation(EventsSeries eventsSeries, Calendar calendar) throws Exception {
         EventData lastPeriod = this.eventServiceImp.getLastPeriod(eventsSeries.getUser().getId());
-        LocalDate ovulation = lastPeriod.getEventDate().plusDays((int) eventsSeries.getCalculatedCycleLength() / 2);
-        LocalDate ovulationStart = ovulation.minusDays(4);
-        LocalDate ovulationEnd = ovulation.plusDays(2);
+        List<PredictedEventSpec> specs = buildPredictionSpecs(lastPeriod, eventsSeries.getCalculatedCycleLength());
 
         List<EventData> prediction = new ArrayList<>();
-
-        // Add next 6 periods prediction
-        for (long i = 0; i < 6; i++) {
-            EventData periodsPrediction = new EventData.EventDataBuilder()
-                    .eventDate(lastPeriod.getEventDate().plusDays((i + 1) * (int) eventsSeries.getCalculatedCycleLength()))
-                    .title("🌋Period-Prediction🌋")
+        for (PredictedEventSpec spec : specs) {
+            EventData event = new EventData.EventDataBuilder()
+                    .eventDate(spec.date())
+                    .title(spec.title())
                     .user(eventsSeries.getUser())
-                    .isPeriodFirstDay(true)
+                    .isPeriodFirstDay(spec.isPeriodFirstDay())
                     .isPredicted(true)
                     .isSync(false)
                     .eventsSeries(eventsSeries)
                     .build();
-            prediction.add(this.eventServiceImp.addEvent(periodsPrediction));
-        }
-
-        // Add ovulation prediction
-        long daysToAdd = ChronoUnit.DAYS.between(ovulationStart, ovulationEnd);
-        for (long i = 0; i < daysToAdd; i++) {
-            EventData ovulationPrediction = new EventData.EventDataBuilder()
-                    .eventDate(ovulationStart.plusDays(i))
-                    .title("⚠️Ovulation-Prediction⚠️")
-                    .user(eventsSeries.getUser())
-                    .isPeriodFirstDay(false)
-                    .isPredicted(true)
-                    .isSync(false)
-                    .eventsSeries(eventsSeries)
-                    .build();
-            prediction.add(this.eventServiceImp.addEvent(ovulationPrediction));
+            prediction.add(this.eventServiceImp.addEvent(event));
         }
 
         // Sync all predictions with Google Calendar
@@ -146,6 +127,100 @@ public class EventSeriesServiceImp implements EventsSeriesService {
         eventsSeries.setPredictedEvents(prediction);
         return this.eventsSeriesRepository.save(eventsSeries);
     }
+
+    /**
+     * Regenerates predictions for a series that already has predicted events, updating
+     * existing Google Calendar events in place instead of deleting and recreating the
+     * whole series. Only the count difference (if any) is added or removed.
+     */
+    private EventsSeries updateExistingEventsSeries(EventsSeries eventsSeries, Calendar calendar) throws Exception {
+        double cycleLength = this.eventServiceImp.calculateCycleLength(eventsSeries.getUser().getId());
+        EventData lastPeriod = this.eventServiceImp.getLastPeriod(eventsSeries.getUser().getId());
+
+        eventsSeries.setCalculatedCycleLength(cycleLength);
+        eventsSeries.setPredictionDate(lastPeriod.getEventDate());
+
+        List<PredictedEventSpec> newSpecs = buildPredictionSpecs(lastPeriod, cycleLength);
+        List<EventData> existingEvents = new ArrayList<>(eventsSeries.getPredictedEvents());
+        int shared = Math.min(newSpecs.size(), existingEvents.size());
+
+        List<EventData> updatedEvents = new ArrayList<>();
+
+        // Update the events both lists have in common in place, rather than delete+recreate
+        for (int i = 0; i < shared; i++) {
+            EventData event = existingEvents.get(i);
+            PredictedEventSpec spec = newSpecs.get(i);
+            event.setTitle(spec.title());
+            event.setEventDate(spec.date());
+            event.setPeriodFirstDay(spec.isPeriodFirstDay());
+            this.eventServiceImp.updateEvent(event, event.getId());
+
+            if (event.isSync() && event.getCalendarEventId() != null) {
+                googleCalendarService.updateEventInGoogleCalendar(event, calendar);
+            } else {
+                googleCalendarService.addEventToGoogleCalendar(event, calendar);
+            }
+            updatedEvents.add(event);
+        }
+
+        // Old series had more events than the new one: remove the extras
+        for (int i = shared; i < existingEvents.size(); i++) {
+            EventData event = existingEvents.get(i);
+            if (event.getCalendarEventId() != null) {
+                googleCalendarService.deleteEventFromGoogleCalendar(event.getCalendarEventId(), calendar);
+            }
+            this.eventServiceImp.deleteEvent(event.getId());
+        }
+
+        // New series has more events than the old one: create the extras
+        List<EventData> newlyAdded = new ArrayList<>();
+        for (int i = shared; i < newSpecs.size(); i++) {
+            PredictedEventSpec spec = newSpecs.get(i);
+            EventData event = new EventData.EventDataBuilder()
+                    .eventDate(spec.date())
+                    .title(spec.title())
+                    .user(eventsSeries.getUser())
+                    .isPeriodFirstDay(spec.isPeriodFirstDay())
+                    .isPredicted(true)
+                    .isSync(false)
+                    .eventsSeries(eventsSeries)
+                    .build();
+            newlyAdded.add(this.eventServiceImp.addEvent(event));
+        }
+        if (!newlyAdded.isEmpty()) {
+            googleCalendarService.batchSyncEvents(newlyAdded, calendar);
+            updatedEvents.addAll(newlyAdded);
+        }
+
+        eventsSeries.setPredictedEvents(updatedEvents);
+        return this.eventsSeriesRepository.save(eventsSeries);
+    }
+
+    private List<PredictedEventSpec> buildPredictionSpecs(EventData lastPeriod, double calculatedCycleLength) {
+        LocalDate ovulation = lastPeriod.getEventDate().plusDays((int) calculatedCycleLength / 2);
+        LocalDate ovulationStart = ovulation.minusDays(4);
+        LocalDate ovulationEnd = ovulation.plusDays(2);
+
+        List<PredictedEventSpec> specs = new ArrayList<>();
+
+        // Next 6 period predictions
+        for (long i = 0; i < 6; i++) {
+            specs.add(new PredictedEventSpec(
+                    lastPeriod.getEventDate().plusDays((i + 1) * (int) calculatedCycleLength),
+                    "🌋Period-Prediction🌋",
+                    true));
+        }
+
+        // Ovulation window predictions
+        long daysToAdd = ChronoUnit.DAYS.between(ovulationStart, ovulationEnd);
+        for (long i = 0; i < daysToAdd; i++) {
+            specs.add(new PredictedEventSpec(ovulationStart.plusDays(i), "⚠️Ovulation-Prediction⚠️", false));
+        }
+
+        return specs;
+    }
+
+    private record PredictedEventSpec(LocalDate date, String title, boolean isPeriodFirstDay) {}
 
     @Override
     public double calculateCycleLength(User user) {

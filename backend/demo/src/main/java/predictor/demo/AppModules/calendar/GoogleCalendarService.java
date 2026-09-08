@@ -49,6 +49,32 @@ public class GoogleCalendarService {
         }
     }
 
+    public Event updateEventInGoogleCalendar(EventData eventData, Calendar calendar) throws Exception {
+        try {
+            Event googleEvent = new Event()
+                .setSummary(eventData.getTitle())
+                .setDescription("Period tracking event")
+                .setStart(new EventDateTime()
+                    .setDate(new DateTime(eventData.getEventDate().toString()))
+                    .setTimeZone("UTC"))
+                .setEnd(new EventDateTime()
+                    .setDate(new DateTime(eventData.getEventDate().plusDays(1).toString()))
+                    .setTimeZone("UTC"));
+
+            Event updatedEvent = calendar.events()
+                .update("primary", eventData.getCalendarEventId(), googleEvent)
+                .execute();
+
+            eventData.setSync(true);
+            log.info("Updated event {} in Google Calendar", eventData.getTitle());
+
+            return updatedEvent;
+        } catch (IOException e) {
+            log.error("Failed to update Google Calendar event", e);
+            throw new Exception("Failed to update event in Google Calendar", e);
+        }
+    }
+
     public void deleteEventFromGoogleCalendar(String eventId, Calendar calendar) throws Exception {
         try {
             if (eventId != null) {
