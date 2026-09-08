@@ -198,7 +198,7 @@ public class EventSeriesServiceImp implements EventsSeriesService {
 
     private List<PredictedEventSpec> buildPredictionSpecs(EventData lastPeriod, double calculatedCycleLength) {
         LocalDate ovulation = lastPeriod.getEventDate().plusDays((int) calculatedCycleLength / 2);
-        LocalDate ovulationStart = ovulation.minusDays(4);
+        LocalDate ovulationStart = ovulation.minusDays(2);
         LocalDate ovulationEnd = ovulation.plusDays(2);
 
         List<PredictedEventSpec> specs = new ArrayList<>();
