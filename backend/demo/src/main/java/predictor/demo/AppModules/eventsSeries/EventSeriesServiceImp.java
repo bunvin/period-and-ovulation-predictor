@@ -192,7 +192,11 @@ public class EventSeriesServiceImp implements EventsSeriesService {
             updatedEvents.addAll(newlyAdded);
         }
 
-        eventsSeries.setPredictedEvents(updatedEvents);
+        // Mutate the existing orphanRemoval-mapped collection in place rather than replacing
+        // it — Hibernate loses orphan-removal tracking if the collection instance is swapped
+        List<EventData> managedPredictedEvents = eventsSeries.getPredictedEvents();
+        managedPredictedEvents.clear();
+        managedPredictedEvents.addAll(updatedEvents);
         return this.eventsSeriesRepository.save(eventsSeries);
     }
 

@@ -18,6 +18,9 @@ import org.springframework.security.oauth2.client.authentication.OAuth2Authentic
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
+import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+import org.springframework.security.oauth2.client.web.DefaultOAuth2AuthorizationRequestResolver;
+import org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestResolver;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -51,7 +54,8 @@ public class AppConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http,
-            OAuth2AuthorizedClientService authorizedClientService) throws Exception {
+            OAuth2AuthorizedClientService authorizedClientService,
+            ClientRegistrationRepository clientRegistrationRepository) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
@@ -60,12 +64,29 @@ public class AppConfiguration {
                 .anyRequest().authenticated())
             .oauth2Login(oauth2 -> oauth2
                 .failureUrl("/login?error=true")
+                .authorizationEndpoint(endpoint -> endpoint
+                    .authorizationRequestResolver(offlineAccessAuthorizationRequestResolver(clientRegistrationRepository)))
                 .userInfoEndpoint(userInfo -> userInfo
                     .userService(oauth2UserService()))
                 .successHandler(refreshTokenSavingSuccessHandler(authorizedClientService)))
             .cors(Customizer.withDefaults())
             .csrf(csrf -> csrf.disable());
         return http.build();
+    }
+
+    // Google only issues a refresh token when offline access is explicitly requested
+    private OAuth2AuthorizationRequestResolver offlineAccessAuthorizationRequestResolver(
+            ClientRegistrationRepository clientRegistrationRepository) {
+        DefaultOAuth2AuthorizationRequestResolver resolver = new DefaultOAuth2AuthorizationRequestResolver(
+            clientRegistrationRepository, "/oauth2/authorization");
+
+        resolver.setAuthorizationRequestCustomizer(customizer -> customizer
+            .additionalParameters(params -> {
+                params.put("access_type", "offline");
+                params.put("prompt", "consent");
+            }));
+
+        return resolver;
     }
 
     @Bean
@@ -128,6 +149,7 @@ public class AppConfiguration {
                         .email(email)
                         .name(name)
                         .picture(picture)
+                        .isActive(true)
                         .build();
                     
                     user = userServiceImp.createUser(newUser);

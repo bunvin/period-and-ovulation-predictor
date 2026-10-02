@@ -3,15 +3,17 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import './EventForm.css';
-import { calendarService } from '../services/api';
+import { calendarService, schedulerService } from '../services/api';
 
 const EventForm: React.FC = () => {
   const [date, setDate] = useState<Date>(new Date());
   const [loading, setLoading] = useState<boolean>(false);
   const [predictionLoading, setPredictionLoading] = useState<boolean>(false);
+  const [scanLoading, setScanLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<boolean>(false);
   const [predictionSuccess, setPredictionSuccess] = useState<boolean>(false);
+  const [scanSuccess, setScanSuccess] = useState<boolean>(false);
 
   const handleDateChange = (date: Date | null): void => {
     if (date) {
@@ -72,6 +74,33 @@ const EventForm: React.FC = () => {
     }
 };
 
+  const handleRunScanNow = async (e: React.MouseEvent<HTMLButtonElement>): Promise<void> => {
+    e.preventDefault();
+    setScanLoading(true);
+    setError(null);
+    setScanSuccess(false);
+
+    try {
+        await schedulerService.runNow();
+
+        setScanSuccess(true);
+        setTimeout(() => setScanSuccess(false), 3000);
+    } catch (err) {
+        console.error(err);
+
+        if (axios.isAxiosError(err)) {
+            const errorMessage = err.response?.data?.message ||
+                                 err.response?.data?.error ||
+                                 'Failed to run scheduler scan';
+            setError(errorMessage);
+        } else {
+            setError('An unexpected error occurred');
+        }
+    } finally {
+        setScanLoading(false);
+    }
+};
+
   return (
     <div className="event-form-container">
       <form onSubmit={handleSubmit}>
@@ -105,9 +134,23 @@ const EventForm: React.FC = () => {
       >
         {predictionLoading ? '✨ Generating... ✨' : '🔮✨ Add New Prediction ✨🔮'}
       </button>
-      {predictionSuccess && 
+      {predictionSuccess &&
         <div className="success-message prediction-success">
           ✨ New predictions generated successfully! ✨
+        </div>
+      }
+
+      <br />
+      <button
+        onClick={handleRunScanNow}
+        disabled={scanLoading}
+        className="run-scan-button"
+      >
+        {scanLoading ? '🔍 Scanning... 🔍' : '🔍 Run Scan Now 🔍'}
+      </button>
+      {scanSuccess &&
+        <div className="success-message scan-success">
+          ✅ Scan triggered — check for a new confirmed period!
         </div>
       }
     </div>

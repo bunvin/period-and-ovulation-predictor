@@ -14,7 +14,11 @@ export const calendarService = {
   getStats: () => api.get<CalendarStats>('/stats'),
   addPeriod: (date: string) => api.post<EventData>('/periods', { date }),
   getPredictions: () => api.get<EventData[]>('/predictions'),
-  generatePredictions: () => 
+  generatePredictions: () =>
     api.post('/predictions/generate'),
   deleteEvent: (eventId: number) => api.delete(`/events/${eventId}`)
+};
+
+export const schedulerService = {
+  runNow: () => axios.post<string>('/api/scheduler/run-now', null, { withCredentials: true })
 };

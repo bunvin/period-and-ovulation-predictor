@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.Calendar;
 import com.google.api.services.calendar.model.Event;
@@ -80,6 +81,14 @@ public class GoogleCalendarService {
             if (eventId != null) {
                 calendar.events().delete("primary", eventId).execute();
                 log.info("Deleted Google Calendar event: {}", eventId);
+            }
+        } catch (GoogleJsonResponseException e) {
+            // 404/410 means the event is already gone — the desired end state is already reached
+            if (e.getStatusCode() == 404 || e.getStatusCode() == 410) {
+                log.info("Google Calendar event {} was already deleted", eventId);
+            } else {
+                log.error("Failed to delete Google Calendar event", e);
+                throw new Exception("Failed to delete from Google Calendar", e);
             }
         } catch (IOException e) {
             log.error("Failed to delete Google Calendar event", e);
