@@ -16,7 +16,8 @@ export const calendarService = {
   getPredictions: () => api.get<EventData[]>('/predictions'),
   generatePredictions: () =>
     api.post('/predictions/generate'),
-  deleteEvent: (eventId: number) => api.delete(`/events/${eventId}`)
+  deleteEvent: (eventId: number) => api.delete(`/events/${eventId}`),
+  getPredictionsReportCsv: () => api.get('/predictions/report', { responseType: 'blob' })
 };
 
 export const schedulerService = {

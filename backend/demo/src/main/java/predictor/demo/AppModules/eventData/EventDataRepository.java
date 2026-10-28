@@ -29,6 +29,12 @@ EventData findMostRecentPeriodFirstDayEvent(@Param("userId") int userId);
     @Query("SELECT e FROM EventData e WHERE e.user.id = :userId AND e.isPredicted = true")
     List<EventData> getAllUserPredictedEvents(@Param("userId") int userId);
 
+    @Query("SELECT e FROM EventData e WHERE e.user.id = :userId AND e.isPredicted = true AND e.isPeriodFirstDay = true ORDER BY e.eventDate ASC")
+    List<EventData> getPeriodPredictions(@Param("userId") int userId);
+
+    @Query("SELECT e FROM EventData e WHERE e.user.id = :userId AND e.isPredicted = false AND e.isPeriodFirstDay = true ORDER BY e.eventDate ASC")
+    List<EventData> getActualPeriods(@Param("userId") int userId);
+
     @Query("SELECT e FROM EventData e WHERE e.user.id = :userId AND e.isPredicted = false")
     List<EventData> getAllUserActualEvents(@Param("userId") int userId);
 

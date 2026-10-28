@@ -60,6 +60,16 @@ public class EventDataServiceImp implements EventDataService {
     }
 
     @Override
+    public List<EventData> getPeriodPredictions(int userId) {
+        return this.eventRepository.getPeriodPredictions(userId);
+    }
+
+    @Override
+    public List<EventData> getActualPeriods(int userId) {
+        return this.eventRepository.getActualPeriods(userId);
+    }
+
+    @Override
     public List<EventData> getAllUserActualEvents(int userId) {
         return this.eventRepository.getAllUserActualEvents(userId);
     }

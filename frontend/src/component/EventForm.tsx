@@ -10,6 +10,7 @@ const EventForm: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [predictionLoading, setPredictionLoading] = useState<boolean>(false);
   const [scanLoading, setScanLoading] = useState<boolean>(false);
+  const [reportLoading, setReportLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<boolean>(false);
   const [predictionSuccess, setPredictionSuccess] = useState<boolean>(false);
@@ -101,6 +102,37 @@ const EventForm: React.FC = () => {
     }
 };
 
+  const handleDownloadReport = async (e: React.MouseEvent<HTMLButtonElement>): Promise<void> => {
+    e.preventDefault();
+    setReportLoading(true);
+    setError(null);
+
+    try {
+        const response = await calendarService.getPredictionsReportCsv();
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'actual_periods.csv');
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.URL.revokeObjectURL(url);
+    } catch (err) {
+        console.error(err);
+
+        if (axios.isAxiosError(err)) {
+            const errorMessage = err.response?.data?.message ||
+                                 err.response?.data?.error ||
+                                 'Failed to download predictions report';
+            setError(errorMessage);
+        } else {
+            setError('An unexpected error occurred');
+        }
+    } finally {
+        setReportLoading(false);
+    }
+};
+
   return (
     <div className="event-form-container">
       <form onSubmit={handleSubmit}>
@@ -153,6 +185,15 @@ const EventForm: React.FC = () => {
           ✅ Scan triggered — check for a new confirmed period!
         </div>
       }
+
+      <br />
+      <button
+        onClick={handleDownloadReport}
+        disabled={reportLoading}
+        className="download-report-button"
+      >
+        {reportLoading ? '📄 Preparing CSV... 📄' : '📄 Export Actual Periods (CSV) 📄'}
+      </button>
     </div>
   );
 };

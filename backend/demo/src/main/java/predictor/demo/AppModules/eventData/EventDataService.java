@@ -13,6 +13,8 @@ public interface EventDataService {
     EventData getLastPeriod(int userId);
     Long countUserActualEvents(int userId);
     List<EventData> getAllUserPredictedEvents(int userId);
+    List<EventData> getPeriodPredictions(int userId);
+    List<EventData> getActualPeriods(int userId);
     List<EventData> getAllUserActualEvents(int userId);
     double calculateCycleLength(int userId);
 }

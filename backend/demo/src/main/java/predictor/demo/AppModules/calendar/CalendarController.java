@@ -5,7 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ContentDisposition;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -117,6 +120,39 @@ public class CalendarController {
             return ResponseEntity.ok(predictions);
         } catch (Exception e) {
             log.error("Error fetching predictions", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    /**
+     * Export all actual (confirmed) period dates as a CSV report
+     */
+    @GetMapping("/predictions/report")
+    public ResponseEntity<byte[]> getPredictionsReport(@AuthenticationPrincipal OAuth2User principal) {
+        try {
+            log.info("Generating actual periods CSV report");
+            User user = userService.getCurrentUser(principal);
+            List<EventData> actualPeriods = eventDataService.getActualPeriods(user.getId());
+
+            StringBuilder csv = new StringBuilder("date,title\n");
+            for (EventData event : actualPeriods) {
+                csv.append(event.getEventDate())
+                   .append(",")
+                   .append(event.getTitle())
+                   .append("\n");
+            }
+
+            byte[] csvBytes = csv.toString().getBytes(java.nio.charset.StandardCharsets.UTF_8);
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.parseMediaType("text/csv"));
+            headers.setContentDisposition(ContentDisposition.attachment()
+                .filename("actual_periods.csv")
+                .build());
+
+            return ResponseEntity.ok().headers(headers).body(csvBytes);
+        } catch (Exception e) {
+            log.error("Error generating actual periods report", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
